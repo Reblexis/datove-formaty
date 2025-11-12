@@ -28,7 +28,7 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="title" type="tns:langElement"/>
-                            <xs:element name="numberOfStudents" type="xs:int"/>
+                            <xs:element name="numberOfStudents" type="xs:integer"/>
                             <xs:element name="Student" maxOccurs="unbounded" minOccurs="0">
                                 <xs:complexType>
                                     <xs:complexContent>
@@ -46,19 +46,23 @@
                                                                             <xs:sequence>
                                                                                 <xs:element name="salary" type="xs:integer"/>
                                                                             </xs:sequence>
+                                                                            <xs:attribute name="id" type="xs:anyURI" use="required"/>
                                                                         </xs:extension>
                                                                     </xs:complexContent>
                                                                 </xs:complexType>
                                                             </xs:element>
                                                         </xs:sequence>
+                                                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                                                     </xs:complexType>
                                                 </xs:element>
                                             </xs:sequence>
+                                            <xs:attribute name="id" type="xs:anyURI" use="required"/>
                                         </xs:extension>
                                     </xs:complexContent>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>

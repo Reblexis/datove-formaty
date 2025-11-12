@@ -33,12 +33,15 @@
                                                     <xs:element name="name" type="tns:langElement"/>
                                                     <xs:element name="code" type="xs:string"/>
                                                 </xs:sequence>
+                                                <xs:attribute name="id" type="xs:anyURI" use="required"/>
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
+                                    <xs:attribute name="id" type="xs:anyURI" use="required"/>
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
+                        <xs:attribute name="id" type="xs:anyURI" use="required"/>
                     </xs:complexType>
                 </xs:element>
             </xs:sequence>

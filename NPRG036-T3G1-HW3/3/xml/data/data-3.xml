@@ -3,56 +3,53 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://www.example.com/schema-3 ../schemas/schema-3.xsd">
 
-    <Teacher>
-        <firstName xml:lang="cs">Jan</firstName>
-        <lastName xml:lang="cs">Novák</lastName>
-        <mobileNumber>+420777111222</mobileNumber>
-        <salary>55000</salary>
-        <Subject>
+    <Teacher id="https://example.org/data/teacher1">
+        <firstName xml:lang="cs">Pavel</firstName>
+        <lastName xml:lang="cs">Veselý</lastName>
+        <mobileNumber>+420123456789</mobileNumber>
+        <salary>45000</salary>
+        <Subject id="https://example.org/data/subject1">
             <name xml:lang="cs">Programování I</name>
             <code>NPRG030</code>
         </Subject>
-        <Subject>
-            <name xml:lang="cs">Algoritmy a datové struktury</name>
-            <code>NPRG031</code>
+        <Subject id="https://example.org/data/subject3">
+            <name xml:lang="cs">Webové technologie</name>
+            <code>NPRG036</code>
         </Subject>
-        <Building>
-            <address xml:lang="cs">Malostranské náměstí 25, Praha 1</address>
-            <name xml:lang="cs">Budova MFF UK</name>
-        </Building>
-    </Teacher>
-
-    <Teacher>
-        <firstName xml:lang="cs">Petra</firstName>
-        <lastName xml:lang="cs">Svobodová</lastName>
-        <mobileNumber>+420777333444</mobileNumber>
-        <salary>62000</salary>
-        <Subject>
-            <name xml:lang="cs">Databázové systémy</name>
-            <code>NDBI025</code>
-        </Subject>
-        <Building>
-            <address xml:lang="cs">Ke Karlovu 3, Praha 2</address>
+        <Building id="https://example.org/data/building2">
+            <address xml:lang="cs">Ke Karlovu 3, 121 16 Praha 2</address>
             <name xml:lang="cs">Matematicko-fyzikální fakulta</name>
         </Building>
     </Teacher>
 
-    <Teacher>
-        <firstName xml:lang="cs">Tomáš</firstName>
+    <Teacher id="https://example.org/data/teacher2">
+        <firstName xml:lang="cs">Marta</firstName>
+        <lastName xml:lang="cs">Vomlelová</lastName>
+        <mobileNumber>+420234567890</mobileNumber>
+        <mobileNumber>+420333444555</mobileNumber>
+        <salary>52000</salary>
+        <Subject id="https://example.org/data/subject2">
+            <name xml:lang="cs">Databázové systémy</name>
+            <code>NDBI025</code>
+        </Subject>
+        <Building id="https://example.org/data/building1">
+            <address xml:lang="cs">Malostranské náměstí 25, 118 00 Praha 1</address>
+            <name xml:lang="cs">Malostranské náměstí</name>
+        </Building>
+    </Teacher>
+
+    <Teacher id="https://example.org/data/teacher3">
+        <firstName xml:lang="cs">Petr</firstName>
         <lastName xml:lang="cs">Dvořák</lastName>
-        <mobileNumber>+420777555666</mobileNumber>
-        <salary>47000</salary>
-        <Subject>
+        <mobileNumber>+420345678901</mobileNumber>
+        <salary>48000</salary>
+        <Subject id="https://example.org/data/subject4">
             <name xml:lang="cs">Lineární algebra</name>
             <code>NMAI059</code>
         </Subject>
-        <Subject>
-            <name xml:lang="cs">Matematická analýza</name>
-            <code>NMAI052</code>
-        </Subject>
-        <Building>
-            <address xml:lang="cs">Kolejní 1, Praha 6</address>
-            <name xml:lang="cs">Studentská kolej</name>
+        <Building id="https://example.org/data/building2">
+            <address xml:lang="cs">Ke Karlovu 3, 121 16 Praha 2</address>
+            <name xml:lang="cs">Matematicko-fyzikální fakulta</name>
         </Building>
     </Teacher>
 

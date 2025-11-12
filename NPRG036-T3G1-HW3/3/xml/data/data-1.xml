@@ -3,27 +3,27 @@
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xsi:schemaLocation="http://www.example.com/schema-1 ../schemas/schema-1.xsd">
 
-    <Specialization>
+    <Specialization id="https://example.org/data/spec1">
         <title xml:lang="cs">Informatika</title>
         <numberOfStudents>250</numberOfStudents>
-        <Student>
+        <Student id="https://example.org/data/student1">
             <firstName xml:lang="cs">Anna</firstName>
             <lastName xml:lang="cs">Procházková</lastName>
             <mobileNumber>+420111222333</mobileNumber>
-            <Subject>
+            <Subject id="https://example.org/data/subject1">
                 <name xml:lang="cs">Programování I</name>
                 <code>NPRG030</code>
-                <Teacher>
+                <Teacher id="https://example.org/data/teacher1">
                     <firstName xml:lang="cs">Pavel</firstName>
                     <lastName xml:lang="cs">Veselý</lastName>
                     <mobileNumber>+420123456789</mobileNumber>
                     <salary>45000</salary>
                 </Teacher>
             </Subject>
-            <Subject>
+            <Subject id="https://example.org/data/subject2">
                 <name xml:lang="cs">Databázové systémy</name>
                 <code>NDBI025</code>
-                <Teacher>
+                <Teacher id="https://example.org/data/teacher2">
                     <firstName xml:lang="cs">Marta</firstName>
                     <lastName xml:lang="cs">Vomlelová</lastName>
                     <mobileNumber>+420234567890</mobileNumber>
@@ -32,14 +32,14 @@
                 </Teacher>
             </Subject>
         </Student>
-        <Student>
+        <Student id="https://example.org/data/student2">
             <firstName xml:lang="cs">Tomáš</firstName>
             <lastName xml:lang="cs">Král</lastName>
             <mobileNumber>+420222333444</mobileNumber>
-            <Subject>
+            <Subject id="https://example.org/data/subject3">
                 <name xml:lang="cs">Webové technologie</name>
                 <code>NPRG036</code>
-                <Teacher>
+                <Teacher id="https://example.org/data/teacher1">
                     <firstName xml:lang="cs">Pavel</firstName>
                     <lastName xml:lang="cs">Veselý</lastName>
                     <mobileNumber>+420123456789</mobileNumber>
@@ -49,16 +49,16 @@
         </Student>
     </Specialization>
 
-    <Specialization>
+    <Specialization id="https://example.org/data/spec2">
         <title xml:lang="cs">Matematika</title>
         <numberOfStudents>180</numberOfStudents>
-        <Student>
+        <Student id="https://example.org/data/student3">
             <firstName xml:lang="cs">Lucie</firstName>
             <lastName xml:lang="cs">Malá</lastName>
-            <Subject>
+            <Subject id="https://example.org/data/subject4">
                 <name xml:lang="cs">Lineární algebra</name>
                 <code>NMAI059</code>
-                <Teacher>
+                <Teacher id="https://example.org/data/teacher3">
                     <firstName xml:lang="cs">Petr</firstName>
                     <lastName xml:lang="cs">Dvořák</lastName>
                     <mobileNumber>+420345678901</mobileNumber>
@@ -68,17 +68,17 @@
         </Student>
     </Specialization>
 
-    <Specialization>
+    <Specialization id="https://example.org/data/spec3">
         <title xml:lang="cs">Fyzika</title>
         <numberOfStudents>120</numberOfStudents>
-        <Student>
+        <Student id="https://example.org/data/student4">
             <firstName xml:lang="cs">Martin</firstName>
             <lastName xml:lang="cs">Černý</lastName>
             <mobileNumber>+420444555666</mobileNumber>
-            <Subject>
+            <Subject id="https://example.org/data/subject1">
                 <name xml:lang="cs">Programování I</name>
                 <code>NPRG030</code>
-                <Teacher>
+                <Teacher id="https://example.org/data/teacher1">
                     <firstName xml:lang="cs">Pavel</firstName>
                     <lastName xml:lang="cs">Veselý</lastName>
                     <mobileNumber>+420123456789</mobileNumber>
