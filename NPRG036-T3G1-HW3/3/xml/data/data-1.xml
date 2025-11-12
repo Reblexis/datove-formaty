@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Specializations xmlns="http://www.example.com/schema-1"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.example.com/schema-1 ../schemas/schema-1.xsd">
+
+    <Specialization>
+        <title xml:lang="cs">Informatika</title>
+        <numberOfStudents>250</numberOfStudents>
+        <Student>
+            <firstName xml:lang="cs">Anna</firstName>
+            <lastName xml:lang="cs">Procházková</lastName>
+            <mobileNumber>+420111222333</mobileNumber>
+            <Subject>
+                <name xml:lang="cs">Programování I</name>
+                <code>NPRG030</code>
+                <Teacher>
+                    <firstName xml:lang="cs">Pavel</firstName>
+                    <lastName xml:lang="cs">Veselý</lastName>
+                    <mobileNumber>+420123456789</mobileNumber>
+                    <salary>45000</salary>
+                </Teacher>
+            </Subject>
+            <Subject>
+                <name xml:lang="cs">Databázové systémy</name>
+                <code>NDBI025</code>
+                <Teacher>
+                    <firstName xml:lang="cs">Marta</firstName>
+                    <lastName xml:lang="cs">Vomlelová</lastName>
+                    <mobileNumber>+420234567890</mobileNumber>
+                    <mobileNumber>+420333444555</mobileNumber>
+                    <salary>52000</salary>
+                </Teacher>
+            </Subject>
+        </Student>
+        <Student>
+            <firstName xml:lang="cs">Tomáš</firstName>
+            <lastName xml:lang="cs">Král</lastName>
+            <mobileNumber>+420222333444</mobileNumber>
+            <Subject>
+                <name xml:lang="cs">Webové technologie</name>
+                <code>NPRG036</code>
+                <Teacher>
+                    <firstName xml:lang="cs">Pavel</firstName>
+                    <lastName xml:lang="cs">Veselý</lastName>
+                    <mobileNumber>+420123456789</mobileNumber>
+                    <salary>45000</salary>
+                </Teacher>
+            </Subject>
+        </Student>
+    </Specialization>
+
+    <Specialization>
+        <title xml:lang="cs">Matematika</title>
+        <numberOfStudents>180</numberOfStudents>
+        <Student>
+            <firstName xml:lang="cs">Lucie</firstName>
+            <lastName xml:lang="cs">Malá</lastName>
+            <Subject>
+                <name xml:lang="cs">Lineární algebra</name>
+                <code>NMAI059</code>
+                <Teacher>
+                    <firstName xml:lang="cs">Petr</firstName>
+                    <lastName xml:lang="cs">Dvořák</lastName>
+                    <mobileNumber>+420345678901</mobileNumber>
+                    <salary>48000</salary>
+                </Teacher>
+            </Subject>
+        </Student>
+    </Specialization>
+
+    <Specialization>
+        <title xml:lang="cs">Fyzika</title>
+        <numberOfStudents>120</numberOfStudents>
+        <Student>
+            <firstName xml:lang="cs">Martin</firstName>
+            <lastName xml:lang="cs">Černý</lastName>
+            <mobileNumber>+420444555666</mobileNumber>
+            <Subject>
+                <name xml:lang="cs">Programování I</name>
+                <code>NPRG030</code>
+                <Teacher>
+                    <firstName xml:lang="cs">Pavel</firstName>
+                    <lastName xml:lang="cs">Veselý</lastName>
+                    <mobileNumber>+420123456789</mobileNumber>
+                    <salary>45000</salary>
+                </Teacher>
+            </Subject>
+        </Student>
+    </Specialization>
+
+</Specializations>

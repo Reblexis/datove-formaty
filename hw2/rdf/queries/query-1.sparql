@@ -1,0 +1,26 @@
+PREFIX ex:   <https://example.org/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# This query joins teacher -> subject and teacher -> building (resides)
+SELECT ?teacher ?teacherLabel ?buildingLabel ?subject ?subjectLabel
+WHERE {
+  # teacher, their subject, and where they live
+  ?teacher a ex:Teacher ;
+           ex:teaches ?subject ;
+           ex:resides ?building .
+
+  # teacher full name
+  OPTIONAL { ?teacher ex:firstName ?tFN }
+  OPTIONAL { ?teacher ex:lastName  ?tLN }
+  OPTIONAL { ?teacher rdfs:label   ?tLbl }
+  BIND( COALESCE(CONCAT(?tFN, " ", ?tLN), ?tLbl, "(no name)") AS ?teacherLabel )
+
+  # building label
+  OPTIONAL { ?building ex:buildingName ?bName }
+  BIND( COALESCE(?bName, "(unknown building)") AS ?buildingLabel )
+
+  # subject label
+  OPTIONAL { ?subject ex:name ?sName }
+  BIND( COALESCE(?sName, "(unnamed subject)") AS ?subjectLabel )
+}
+ORDER BY ?teacherLabel ?subjectLabel

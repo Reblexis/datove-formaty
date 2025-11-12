@@ -1,0 +1,33 @@
+PREFIX ex:   <https://example.org/vocabulary/>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+
+# This query computes seat utilization per subject:
+# 1. Inner subquery groups per subject and returns:
+#    - subject name
+#    - number of students
+#    - room capacity (from the classroom)
+# 2. Outer query then BINDs a derived ratio (students/capacity)
+SELECT ?subject ?subjectName ?numStudents ?roomCapacity
+       (?numStudentsDecimal / ?roomCapacityDecimal AS ?fillRatio)
+WHERE {
+  {
+    SELECT ?subject ?subjectName (COUNT(DISTINCT ?student) AS ?numStudents) (MAX(?capacity) AS ?roomCapacity)
+    WHERE {
+      ?subject a ex:Subject ;
+               ex:takes_place ?room .
+      OPTIONAL { ?subject ex:name ?subjectName }
+
+      ?room a ex:Classroom ;
+            ex:capacity ?capacity .
+
+      OPTIONAL {
+        ?student a ex:Student ;
+                 ex:attends ?subject .
+      }
+    }
+    GROUP BY ?subject ?subjectName
+  }
+  BIND(xsd:decimal(?numStudents) AS ?numStudentsDecimal)
+  BIND(xsd:decimal(?roomCapacity) AS ?roomCapacityDecimal)
+}
+ORDER BY DESC(?fillRatio)

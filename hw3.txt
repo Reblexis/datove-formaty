@@ -1,0 +1,83 @@
+
+NPRG036 - Data Formats - Homework 3 assignment
+
+What
+    In this homework, you will create data schemas, data samples and queries using hierarchical data models and query languages including transformations of the hierarchical data to RDF. You should use the same data instances as in HW2, this time in other data formats.
+
+        Fix the previous homework based on the tutor's notes. The XSLT transformation and JSON-LD mapping in this homework should target the fixed HW2 version (see below).
+        For representation of your data in hierarchical data formats, you will first need to create one or more hierarchical diagrams corresponding to the conceptual one, showing how your data will be structured into hierarchies. Each hierarchical diagram will use directed associations, showing the nesting relation, and will have a root class with no incoming associations. It might be necessary to split the data into multiple hierarchies to avoid some redundancies and to cover every possibility your conceptual model from HW1 offers.
+        Example of a conceptual model:
+        Example of a hierarchical model:
+        For each hierarchical model create a corresponding XML Schema, enforcing proper datatypes.
+        Represent the data in XML files valid against the created XML Schemas. Utilize the xml:lang attribute to denote the natural language of text values (HINT)
+        Create a set of non-trivial XPath queries to query the XML data.
+        Create a non-trivial XSLT transformation producing HTML representation of a reasonable subset of your data.
+        Create XSLT transformations producing RDF Turtle representation of your data. This is called a "lifting transformation" - lifting the data to a semantically more precise representation. The resulting RDF data representation should be identical to the one from Homework 2. Validate the resulting file.
+        For each hierarchical model create a corresponding JSON Schema, enforcing proper datatypes.
+        Represent the data in JSON files valid against the created JSON Schemas.
+        Create a JSON-LD context mapping the JSON representations to RDF. The resulting RDF data representation should be identical to the one from Homework 2. This might require changing or amending the JSON representation and the JSON Schemas. Use the JSON-LD playground to view the RDF N-Quads representation. Use the Apache Jena riot command-line tool transform the result into RDF Turtle.
+        Create a set of non-trivial jq queries to query the JSON data.
+
+Quantitative requirements
+
+        At least 3 instances of each class. In case of inheritance hierarchies, one of each children is enough.
+        Every attribute used at least once.
+        At least 3 instances of each association.
+        At least 4 non-trivial XPath queries
+        At least 4 non-trivial jq queries
+
+How
+
+        Replace the HW2 file with a fixed one in the HW2 column.
+        To the HW3 column, upload a zipped file named NPRG036-<groupID>-HW3.zip, e.g. NPRG036-T1G4-HW3.zip.
+        Zip file will contain folder 3, containing:
+            File log.txt containing a log of your work on the assignment - who worked on which part in which role
+            Folder model containing:
+                Files hierarchy-1.svg, hierarchy-2.svg, ... with the hierarchical models
+            Folder xml containing:
+                Folder schemas containing:
+                    Files schema-1.xsd, schema-2.xsd, ... with XML Schema schemas
+                Folder data containing:
+                    Files data-1.xml, data-2.xml, ... with data valid against the respective schemas, linked to them via the appropriate attributes
+                Folder queries containing:
+                    Files query-1-1.xpath, query-1-2.xpath, query-2-1.xpath, ... with executable queries, with their meaning explained in XPath comments. The first number identifies the data file the query should be run against. The second number identifies the queries on one file.
+                Folder xslt-html containing:
+                    File toHtml.xslt, transforming one of the XML data files to HTML
+                Folder xslt-rdf containing:
+                    Files toRdf-1.xslt, toRdf-2.xslt, ... transforming the individual XML data files to RDF Turtle
+                Folder rdf containing:
+                    RDF Turtle files data-1.ttl, data-2.ttl, ... with data resulting from the toRdf-* XSLT transformations of the XML data files.
+            Folder json containing:
+                Folder schemas containing:
+                    Files schema-1.json, schema-2.json, ... with JSON Schema schemas
+                Folder data containing:
+                    JSON-LD files data-1.jsonld, data-2.jsonld, ... with data valid against the respective schemas and interpretable as RDF. The JSON-LD context should be included in the data files.
+                Folder rdf containing:
+                    RDF Turtle files data-1.ttl, data-2.ttl, ... with data resulting from the JSON-LD mapping of the JSON data files.
+                Folder queries containing:
+                    Files query-1-1.jq, query-1-2.jq, query-2-1.jq, ... with executable queries. The first number identifies the data file the query should be run against. The second number identifies the queries on one file.
+                    File readme.txt in UTF-8 explaining the meaning of the individual queries.
+
+Frequently Asked Questions (FAQ)
+
+What is a trivial query?
+    Listing of entities of a certain type, optionally filtered by a certain value. 
+    Counting of entities of a certain type, optionally filtered by a certain value. 
+
+Common errors
+
+Conceptual model not fully covered by hierarchies
+    The goal is to cover the entire conceptual model in the hierarchical data formats. This may include splitting the data into multiple hierarchical files (both in JSON and XML). For example, if you have a relation in your conceptual model with multiplicity 0..* on both ends, you will need two hierarchies to cover that part of the model as instances of both classes can exist independently of each other. 
+Having 0..1 or 0..* multiplicities at the parent class in the hierarchical model
+    This means that the instance of the child class does not have to have a relation to the parent class. However, if in your schema you only allow for instances of the child class to appear nested in instances of the parent class, this corresponds to other multiplicities - 1..1 or 1..*. It is best to design the hierarchies so that they do not include the 0..1 or 0..* multiplicities with the parent class. Instead, split those independent entities into separate hierarchies. You can then have those as separate files, or separate subtrees with a common root in one file.
+Invalid JSON Schema, validator says OK
+    JSON Schema validators work with schema files in a way where they extract what corresponds to JSON Schema and ignore the rest. If you supply something that is not a JSON Schema, the validator sees an empty schema. Every JSON file is valid against an empty schema. Such a validation means nothing. When testing your JSON schemas, try breaking individual parts of the JSON files - the validator must issue corresponding errors. If it does not, it is not correct. 
+Unidentified entities
+    In XML and JSON, entities should also have globally unique identifiers. You have those from RDF, so reuse them also in XML and JSON. You can use those to avoid redundancies (reference using the IRIs instead), and you will need those identifiers to be able to correctly map XML and JSON back to RDF.
+RDF triples generated from XML using XSLT or by translating JSON-LD do not match those in HW2
+    The point of the "lifting transformation" part of the homework is to practice transformation of data from XML to RDF and from JSON to RDF. The resulting triples should, therefore, use the same IRIs, predicates and classes, and the literals should have the same data types and language tags as in HW2. 
+Overusing for-each in XSLT instead of using XSL templates
+    When writing XSLT, try to utilize the natural flow of the XSLT processor, which traverses the XML document tree and applies templates. Writing XSLT as one big template full of xsl:for-each cycles instead is a bad practice. 
+xsd:bool, xsd:int, xsd:float datatypes
+    xsd:bool does not exist. It is xsd:boolean. xsd:int exists, but it is a more specific data type than xsd:integer, which is the one used everywhere on the web. xsd:float exists, but the one usually used is xsd:double. 
+

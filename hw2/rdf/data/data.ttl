@@ -1,0 +1,281 @@
+@prefix ex: <https://example.org/vocabulary/> .
+@prefix data: <https://example.org/data/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+######################### CLASSES #########################
+
+ex:Person a rdfs:Class ;
+    rdfs:label "Person"@en ;
+    rdfs:comment "A human individual with basic personal information."@en .
+
+ex:Teacher a rdfs:Class ;
+    rdfs:label "Teacher"@en ;
+    rdfs:subClassOf ex:Person ;
+    rdfs:comment "A person who teaches one or more subjects."@en .
+
+ex:Student a rdfs:Class ;
+    rdfs:label "Student"@en ;
+    rdfs:subClassOf ex:Person ;
+    rdfs:comment "A person who attends one or more subjects."@en .
+
+ex:Subject a rdfs:Class ;
+    rdfs:label "Subject"@en ;
+    rdfs:comment "A taught subject including its code and name."@en .
+
+ex:Building a rdfs:Class ;
+    rdfs:label "Building"@en ;
+    rdfs:comment "A building that can contain classrooms and where teachers or students may reside."@en .
+
+ex:Classroom a rdfs:Class ;
+    rdfs:label "Classroom"@en ;
+    rdfs:comment "A classroom located in a building where subjects take place."@en .
+
+ex:Specialization a rdfs:Class ;
+    rdfs:label "Specialization"@en ;
+    rdfs:comment "A specialization is studied by students."@en .
+
+
+######################### DATA PROPERTIES #########################
+
+ex:firstName a rdf:Property ;
+    rdfs:label "First name"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range rdf:langString .
+
+ex:lastName a rdf:Property ;
+    rdfs:label "Last name"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range rdf:langString .
+
+ex:mobileNumber a rdf:Property ;
+    rdfs:label "Mobile number"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range rdfs:Resource .
+
+ex:salary a rdf:Property ;
+    rdfs:label "Salary"@en ;
+    rdfs:domain ex:Teacher ;
+    rdfs:range xsd:integer .
+
+ex:name a rdf:Property ;
+    rdfs:label "Name"@en ;
+    rdfs:domain ex:Subject ;
+    rdfs:range rdf:langString .
+
+ex:code a rdf:Property ;
+    rdfs:label "Subject code"@en ;
+    rdfs:domain ex:Subject ;
+    rdfs:range xsd:string .
+
+ex:address a rdf:Property ;
+    rdfs:label "Address"@en ;
+    rdfs:domain ex:Building ;
+    rdfs:range xsd:string .
+
+ex:buildingName a rdf:Property ;
+    rdfs:label "Building name"@en ;
+    rdfs:domain ex:Building ;
+    rdfs:range rdf:langString .
+
+ex:capacity a rdf:Property ;
+    rdfs:label "Classroom capacity"@en ;
+    rdfs:domain ex:Classroom ;
+    rdfs:range xsd:integer .
+
+ex:classroomName a rdf:Property ;
+    rdfs:label "Classroom name"@en ;
+    rdfs:domain ex:Classroom ;
+    rdfs:range rdf:langString .
+
+ex:title a rdf:Property ;
+    rdfs:label "Specialization title"@en ;
+    rdfs:domain ex:Specialization ;
+    rdfs:range rdf:langString .
+
+ex:numberOfStudents a rdf:Property ;
+    rdfs:label "Number of students"@en ;
+    rdfs:domain ex:Specialization ;
+    rdfs:range xsd:integer .
+
+
+######################### OBJECT PROPERTIES #########################
+
+# Person -> Building
+ex:resides a rdf:Property ;
+    rdfs:label "resides in"@en ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Building ;
+    rdfs:comment "Links a person to the building where they reside."@en .
+
+# Teacher -> Subject
+ex:teaches a rdf:Property ;
+    rdfs:label "teaches"@en ;
+    rdfs:domain ex:Teacher ;
+    rdfs:range ex:Subject ;
+    rdfs:comment "Links a teacher to a subject they teach."@en .
+
+# Student -> Specialization
+ex:studies a rdf:Property ;
+    rdfs:label "studies"@en ;
+    rdfs:domain ex:Student ;
+    rdfs:range ex:Specialization ;
+    rdfs:comment "Links a student to the specialization they study."@en .
+
+# Subject -> Classroom
+ex:takes_place a rdf:Property ;
+    rdfs:label "takes place in"@en ;
+    rdfs:domain ex:Subject ;
+    rdfs:range ex:Classroom ;
+    rdfs:comment "Links a subject to the classroom where it takes place."@en .
+
+# Student -> Subject
+ex:attends a rdf:Property ;
+    rdfs:label "attends"@en ;
+    rdfs:domain ex:Student ;
+    rdfs:range ex:Subject ;
+    rdfs:comment "Links a student to a subject they attend."@en .
+
+# Classroom -> Building
+ex:is_part_of a rdf:Property ;
+    rdfs:label "is part of"@en ;
+    rdfs:domain ex:Classroom ;
+    rdfs:range ex:Building ;
+    rdfs:comment "Links a classroom to the building it belongs to."@en .
+
+######################### BUILDINGS #########################
+
+data:building1 a ex:Building ;
+    ex:buildingName "Malostranské náměstí"@cs, "Malostranske Square"@en ;
+    ex:address "Malostranské náměstí 25, 118 00 Praha 1"@cs .
+
+data:building2 a ex:Building ;
+    ex:buildingName "Matematicko-fyzikální fakulta"@cs, "Faculty of Mathematics and Physics"@en ;
+    ex:address "Ke Karlovu 3, 121 16 Praha 2"@cs .
+
+data:building3 a ex:Building ;
+    ex:buildingName "Studentská kolej"@cs, "Student Dormitory"@en ;
+    ex:address "Kolejní 1, 160 00 Praha 6"@cs .
+    
+######################### CLASSROOMS #########################
+
+data:classroom1 a ex:Classroom ;
+    ex:classroomName "S1"@en, "Posluchárna S1"@cs ;
+    ex:capacity 150 ;
+    ex:is_part_of data:building1 .
+
+data:classroom2 a ex:Classroom ;
+    ex:classroomName "S5"@en, "Posluchárna S5"@cs ;
+    ex:capacity 80 ;
+    ex:is_part_of data:building1 .
+
+data:classroom3 a ex:Classroom ;
+    ex:classroomName "K11"@en, "Učebna K11"@cs ;
+    ex:capacity 40 ;
+    ex:is_part_of data:building2 .
+
+######################### SPECIALIZATIONS #########################
+
+data:spec1 a ex:Specialization ;
+    ex:title "Informatika"@cs, "Computer Science"@en ;
+    ex:numberOfStudents 250 .
+
+data:spec2 a ex:Specialization ;
+    ex:title "Matematika"@cs, "Mathematics"@en ;
+    ex:numberOfStudents 180 .
+
+data:spec3 a ex:Specialization ;
+    ex:title "Fyzika"@cs, "Physics"@en ;
+    ex:numberOfStudents 120 .
+
+######################### SUBJECTS #########################
+
+data:subject1 a ex:Subject ;
+    ex:name "Programování I"@cs, "Programming I"@en ;
+    ex:code "NPRG030" ;
+    ex:takes_place data:classroom1 .
+
+data:subject2 a ex:Subject ;
+    ex:name "Databázové systémy"@cs, "Database Systems"@en ;
+    ex:code "NDBI025" ;
+    ex:takes_place data:classroom2 .
+
+data:subject3 a ex:Subject ;
+    ex:name "Webové technologie"@cs, "Web Technologies"@en ;
+    ex:code "NPRG036" ;
+    ex:takes_place data:classroom1 .
+
+data:subject4 a ex:Subject ;
+    ex:name "Lineární algebra"@cs, "Linear Algebra"@en ;
+    ex:code "NMAI059" ;
+    ex:takes_place data:classroom3 .
+
+######################### TEACHERS #########################
+
+
+data:teacher1 a ex:Teacher ;
+    ex:firstName "Pavel"@cs ;
+    ex:lastName "Veselý"@cs ;
+    ex:mobileNumber <tel:+420-123-456-789> ;
+    ex:salary 45000 ;
+    ex:resides data:building2 ;
+    ex:teaches data:subject1, data:subject3 .
+
+data:teacher2 a ex:Teacher ;
+    ex:firstName "Marta"@cs ;
+    ex:lastName "Vomlelová"@cs ;
+    ex:mobileNumber <tel:+420-234-567-890> , <tel:+420-333-444-555> ;
+    ex:salary 52000 ;
+    ex:resides data:building1 ;
+    ex:teaches data:subject2 .
+
+data:teacher3 a ex:Teacher ;
+    ex:firstName "Petr"@cs ;
+    ex:lastName "Dvořák"@cs ;
+    ex:mobileNumber <tel:+420-345-678-901> ;
+    ex:salary 48000 ;
+    ex:resides data:building2 ;
+    ex:teaches data:subject4 .
+
+######################### STUDENTS #########################
+
+data:student1 a ex:Student ;
+    ex:firstName "Anna"@cs ;
+    ex:lastName "Procházková"@cs ;
+    ex:mobileNumber <tel:+420-111-222-333> ;
+    ex:resides data:building3 ;
+    ex:studies data:spec1 ;
+    ex:attends data:subject1, data:subject2, data:subject3 .
+
+data:student2 a ex:Student ;
+    ex:firstName "Tomáš"@cs ;
+    ex:lastName "Král"@cs ;
+    ex:mobileNumber <tel:+420-222-333-444> ;
+    ex:resides data:building3 ;
+    ex:studies data:spec1 ;
+    ex:attends data:subject1, data:subject3 .
+
+data:student3 a ex:Student ;
+    ex:firstName "Lucie"@cs ;
+    ex:lastName "Malá"@cs ;
+    ex:resides data:building3 ;
+    ex:studies data:spec2 ;
+    ex:attends data:subject4 .
+
+data:student4 a ex:Student ;
+    ex:firstName "Martin"@cs ;
+    ex:lastName "Černý"@cs ;
+    ex:mobileNumber <tel:+420-444-555-666> ;
+    ex:resides data:building3 ;
+    ex:studies data:spec3 ;
+    ex:attends data:subject1, data:subject4 .
+
+data:student5 a ex:Student ;
+    ex:firstName "Kateřina"@cs ;
+    ex:lastName "Horáková"@cs ;
+    ex:mobileNumber <tel:+420-555-666-777> ;
+    ex:resides data:building3 ;
+    ex:studies data:spec1 ;
+    ex:attends data:subject2, data:subject3 .
+

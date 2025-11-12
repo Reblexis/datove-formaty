@@ -1,0 +1,25 @@
+PREFIX ex:   <https://example.org/vocabulary/>
+
+# This query shows, for each subject:
+# - how many teachers teach it
+# - how many students attend it
+# and also returns the subject's human-readable name
+SELECT ?subject ?subjectName
+       (COUNT(DISTINCT ?t) AS ?numTeachers)
+       (COUNT(DISTINCT ?s) AS ?numStudents)
+WHERE {
+  ?subject a ex:Subject .
+  OPTIONAL { ?subject ex:name ?subjectName }
+
+  OPTIONAL {
+    ?t a ex:Teacher ;
+       ex:teaches ?subject .
+  }
+
+  OPTIONAL {
+    ?s a ex:Student ;
+       ex:attends ?subject .
+  }
+}
+GROUP BY ?subject ?subjectName
+ORDER BY DESC(?numStudents) DESC(?numTeachers)

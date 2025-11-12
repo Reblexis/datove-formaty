@@ -1,0 +1,25 @@
+PREFIX ex:   <https://example.org/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# This query profiles each teacher:
+# - how many subjects they teach
+# - how many buildings those subjects take place in
+SELECT ?teacher ?teacherName
+       (COUNT(DISTINCT ?subject) AS ?numSubjects)
+       (COUNT(DISTINCT ?building) AS ?numBuildings)
+WHERE {
+  ?teacher a ex:Teacher ;
+           ex:teaches ?subject .
+
+  OPTIONAL { ?teacher ex:firstName ?fn }
+  OPTIONAL { ?teacher ex:lastName  ?ln }
+  OPTIONAL { ?teacher rdfs:label   ?tlabel }
+  BIND( COALESCE(CONCAT(?fn, " ", ?ln), ?tlabel, "(no name)") AS ?teacherName )
+
+  OPTIONAL {
+    ?subject ex:takes_place ?room .
+    ?room    ex:is_part_of  ?building .
+  }
+}
+GROUP BY ?teacher ?teacherName
+ORDER BY DESC(?numSubjects) DESC(?numBuildings)

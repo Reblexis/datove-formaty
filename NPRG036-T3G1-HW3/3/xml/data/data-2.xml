@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Buildings xmlns="http://www.example.com/schema-2"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.example.com/schema-2 ../schemas/schema-2.xsd">
+
+    <Building>
+        <address xml:lang="cs">Malostranské náměstí 25, 118 00 Praha 1</address>
+        <name xml:lang="cs">Malostranské náměstí</name>
+        <Classroom>
+            <capacity>150</capacity>
+            <name xml:lang="cs">Posluchárna S1</name>
+            <Subject>
+                <name xml:lang="cs">Programování I</name>
+                <code>NPRG030</code>
+            </Subject>
+            <Subject>
+                <name xml:lang="cs">Webové technologie</name>
+                <code>NPRG036</code>
+            </Subject>
+        </Classroom>
+        <Classroom>
+            <capacity>80</capacity>
+            <name xml:lang="cs">Posluchárna S5</name>
+            <Subject>
+                <name xml:lang="cs">Databázové systémy</name>
+                <code>NDBI025</code>
+            </Subject>
+        </Classroom>
+    </Building>
+
+    <Building>
+        <address xml:lang="cs">Ke Karlovu 3, 121 16 Praha 2</address>
+        <name xml:lang="cs">Matematicko-fyzikální fakulta</name>
+        <Classroom>
+            <capacity>40</capacity>
+            <name xml:lang="cs">Učebna K11</name>
+            <Subject>
+                <name xml:lang="cs">Lineární algebra</name>
+                <code>NMAI059</code>
+            </Subject>
+        </Classroom>
+    </Building>
+
+    <Building>
+        <address xml:lang="cs">Kolejní 1, 160 00 Praha 6</address>
+        <name xml:lang="cs">Studentská kolej</name>
+    </Building>
+
+</Buildings>
