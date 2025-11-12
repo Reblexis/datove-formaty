@@ -47,6 +47,32 @@
                 </Teacher>
             </Subject>
         </Student>
+        <Student id="https://example.org/data/student5">
+            <firstName xml:lang="cs">Kateřina</firstName>
+            <lastName xml:lang="cs">Horáková</lastName>
+            <mobileNumber>+420555666777</mobileNumber>
+            <Subject id="https://example.org/data/subject2">
+                <name xml:lang="cs">Databázové systémy</name>
+                <code>NDBI025</code>
+                <Teacher id="https://example.org/data/teacher2">
+                    <firstName xml:lang="cs">Marta</firstName>
+                    <lastName xml:lang="cs">Vomlelová</lastName>
+                    <mobileNumber>+420234567890</mobileNumber>
+                    <mobileNumber>+420333444555</mobileNumber>
+                    <salary>52000</salary>
+                </Teacher>
+            </Subject>
+            <Subject id="https://example.org/data/subject3">
+                <name xml:lang="cs">Webové technologie</name>
+                <code>NPRG036</code>
+                <Teacher id="https://example.org/data/teacher1">
+                    <firstName xml:lang="cs">Pavel</firstName>
+                    <lastName xml:lang="cs">Veselý</lastName>
+                    <mobileNumber>+420123456789</mobileNumber>
+                    <salary>45000</salary>
+                </Teacher>
+            </Subject>
+        </Student>
     </Specialization>
 
     <Specialization id="https://example.org/data/spec2">
