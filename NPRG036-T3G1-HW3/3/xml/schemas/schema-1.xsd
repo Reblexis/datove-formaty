@@ -14,11 +14,16 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
+    <xs:simpleType name="phoneNumberType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\+[0-9]{3}-[0-9]{3}-[0-9]{3}-[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:complexType name="Person">
         <xs:sequence>
             <xs:element name="firstName" type="tns:langElement"/>
             <xs:element name="lastName" type="tns:langElement"/>
-            <xs:element name="mobileNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="mobileNumber" type="tns:phoneNumberType" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
     <xs:element name="Specializations">
@@ -27,6 +32,7 @@
                 <xs:element name="Specialization" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
+                            <xs:element name="title" type="tns:langElement"/>
                             <xs:element name="title" type="tns:langElement"/>
                             <xs:element name="numberOfStudents" type="xs:integer"/>
                             <xs:element name="Student" maxOccurs="unbounded" minOccurs="0">
@@ -37,6 +43,7 @@
                                                 <xs:element name="Subject" minOccurs="1" maxOccurs="unbounded">
                                                     <xs:complexType>
                                                         <xs:sequence>
+                                                            <xs:element name="name" type="tns:langElement"/>
                                                             <xs:element name="name" type="tns:langElement"/>
                                                             <xs:element name="code" type="xs:string"/>
                                                             <xs:element name="Teacher" minOccurs="1" maxOccurs="unbounded">
