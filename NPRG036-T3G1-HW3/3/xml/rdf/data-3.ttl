@@ -1,0 +1,62 @@
+@prefix ex: <https://example.org/vocabulary/> .
+@prefix data: <https://example.org/data/> .
+
+######################### BUILDINGS #########################
+
+data:building2 a ex:Building ;
+    ex:buildingName "Matematicko-fyzikální fakulta"@cs ;
+    ex:address "Ke Karlovu 3, 121 16 Praha 2"@cs .
+
+data:building1 a ex:Building ;
+    ex:buildingName "Malostranské náměstí"@cs ;
+    ex:address "Malostranské náměstí 25, 118 00 Praha 1"@cs .
+
+
+######################### TEACHERS #########################
+
+data:teacher1 a ex:Teacher ;
+    ex:firstName "Pavel"@cs ;
+    ex:lastName "Veselý"@cs ;
+    ex:mobileNumber <tel:+420-123-456-789> ;
+    ex:salary 45000 ;
+    ex:residesIn data:building2 ;
+    ex:teaches data:subject1, data:subject3 .
+
+data:teacher2 a ex:Teacher ;
+    ex:firstName "Marta"@cs ;
+    ex:lastName "Vomlelová"@cs ;
+    ex:mobileNumber <tel:+420-234-567-890>, <tel:+420-333-444-555> ;
+    ex:salary 52000 ;
+    ex:residesIn data:building1 ;
+    ex:teaches data:subject2 .
+
+data:teacher3 a ex:Teacher ;
+    ex:firstName "Petr"@cs ;
+    ex:lastName "Dvořák"@cs ;
+    ex:mobileNumber <tel:+420-345-678-901> ;
+    ex:salary 48000 ;
+    ex:residesIn data:building2 ;
+    ex:teaches data:subject4 .
+
+
+######################### SUBJECTS #########################
+
+data:subject1 a ex:Subject ;
+    ex:name "Programování I"@cs, "Programming I"@en ;
+    ex:code "NPRG030" ;
+    ex:teaches data:teacher1 .
+
+data:subject3 a ex:Subject ;
+    ex:name "Webové technologie"@cs, "Web Technologies"@en ;
+    ex:code "NPRG036" ;
+    ex:teaches data:teacher1 .
+
+data:subject2 a ex:Subject ;
+    ex:name "Databázové systémy"@cs, "Database Systems"@en ;
+    ex:code "NDBI025" ;
+    ex:teaches data:teacher2 .
+
+data:subject4 a ex:Subject ;
+    ex:name "Lineární algebra"@cs, "Linear Algebra"@en ;
+    ex:code "NMAI059" ;
+    ex:teaches data:teacher3 .

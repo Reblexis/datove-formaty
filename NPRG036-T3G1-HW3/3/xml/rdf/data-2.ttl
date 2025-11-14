@@ -1,0 +1,57 @@
+@prefix ex: <https://example.org/vocabulary/> .
+@prefix data: <https://example.org/data/> .
+
+######################### BUILDINGS #########################
+
+data:building1 a ex:Building ;
+    ex:buildingName "Malostranské náměstí"@cs ;
+    ex:address "Malostranské náměstí 25, 118 00 Praha 1"@cs .
+
+data:building2 a ex:Building ;
+    ex:buildingName "Matematicko-fyzikální fakulta"@cs ;
+    ex:address "Ke Karlovu 3, 121 16 Praha 2"@cs .
+
+data:building3 a ex:Building ;
+    ex:buildingName "Studentská kolej"@cs ;
+    ex:address "Kolejní 1, 160 00 Praha 6"@cs .
+
+
+######################### CLASSROOMS #########################
+
+data:classroom1 a ex:Classroom ;
+    ex:classroomName "Posluchárna S1"@cs, "S1"@en ;
+    ex:capacity 150 ;
+    ex:isPartOf data:building1 .
+
+data:classroom2 a ex:Classroom ;
+    ex:classroomName "Posluchárna S5"@cs, "S5"@en ;
+    ex:capacity 80 ;
+    ex:isPartOf data:building1 .
+
+data:classroom3 a ex:Classroom ;
+    ex:classroomName "Učebna K11"@cs, "K11"@en ;
+    ex:capacity 40 ;
+    ex:isPartOf data:building2 .
+
+
+######################### SUBJECTS #########################
+
+data:subject1 a ex:Subject ;
+    ex:name "Programování I"@cs, "Programming I"@en ;
+    ex:code "NPRG030" ;
+    ex:takes_place data:classroom1 .
+
+data:subject3 a ex:Subject ;
+    ex:name "Webové technologie"@cs, "Web Technologies"@en ;
+    ex:code "NPRG036" ;
+    ex:takes_place data:classroom1 .
+
+data:subject2 a ex:Subject ;
+    ex:name "Databázové systémy"@cs, "Database systems"@en ;
+    ex:code "NDBI025" ;
+    ex:takes_place data:classroom2 .
+
+data:subject4 a ex:Subject ;
+    ex:name "Lineární algebra"@cs, "Linear Algebra"@en ;
+    ex:code "NMAI059" ;
+    ex:takes_place data:classroom3 .
