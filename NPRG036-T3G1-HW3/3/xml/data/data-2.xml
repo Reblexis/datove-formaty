@@ -7,22 +7,27 @@
         <address xml:lang="cs">Malostranské náměstí 25, 118 00 Praha 1</address>
         <name xml:lang="cs">Malostranské náměstí</name>
         <Classroom id="https://example.org/data/classroom1">
-            <capacity>150</capacity>
             <name xml:lang="cs">Posluchárna S1</name>
+            <name xml:lang="en">S1</name>
+            <capacity>150</capacity>
             <Subject id="https://example.org/data/subject1">
                 <name xml:lang="cs">Programování I</name>
+                <name xml:lang="en">Programming I</name>
                 <code>NPRG030</code>
             </Subject>
             <Subject id="https://example.org/data/subject3">
                 <name xml:lang="cs">Webové technologie</name>
+                <name xml:lang="en">Web Technologies</name>
                 <code>NPRG036</code>
             </Subject>
         </Classroom>
         <Classroom id="https://example.org/data/classroom2">
-            <capacity>80</capacity>
             <name xml:lang="cs">Posluchárna S5</name>
+            <name xml:lang="en">S5</name>
+            <capacity>80</capacity>
             <Subject id="https://example.org/data/subject2">
                 <name xml:lang="cs">Databázové systémy</name>
+                <name xml:lang="en">Database systems</name>
                 <code>NDBI025</code>
             </Subject>
         </Classroom>
@@ -32,10 +37,12 @@
         <address xml:lang="cs">Ke Karlovu 3, 121 16 Praha 2</address>
         <name xml:lang="cs">Matematicko-fyzikální fakulta</name>
         <Classroom id="https://example.org/data/classroom3">
-            <capacity>40</capacity>
             <name xml:lang="cs">Učebna K11</name>
+            <name xml:lang="en">K11</name>
+            <capacity>40</capacity>
             <Subject id="https://example.org/data/subject4">
                 <name xml:lang="cs">Lineární algebra</name>
+                <name xml:lang="en">Linear Algebra</name>
                 <code>NMAI059</code>
             </Subject>
         </Classroom>

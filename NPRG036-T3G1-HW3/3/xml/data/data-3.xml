@@ -6,14 +6,16 @@
     <Teacher id="https://example.org/data/teacher1">
         <firstName xml:lang="cs">Pavel</firstName>
         <lastName xml:lang="cs">Veselý</lastName>
-        <mobileNumber>+420123456789</mobileNumber>
+        <mobileNumber>+420-123-456-789</mobileNumber>
         <salary>45000</salary>
         <Subject id="https://example.org/data/subject1">
             <name xml:lang="cs">Programování I</name>
+            <name xml:lang="en">Programming I</name>
             <code>NPRG030</code>
         </Subject>
         <Subject id="https://example.org/data/subject3">
             <name xml:lang="cs">Webové technologie</name>
+            <name xml:lang="en">Web Technologies</name>
             <code>NPRG036</code>
         </Subject>
         <Building id="https://example.org/data/building2">
@@ -25,11 +27,12 @@
     <Teacher id="https://example.org/data/teacher2">
         <firstName xml:lang="cs">Marta</firstName>
         <lastName xml:lang="cs">Vomlelová</lastName>
-        <mobileNumber>+420234567890</mobileNumber>
-        <mobileNumber>+420333444555</mobileNumber>
+        <mobileNumber>+420-234-567-890</mobileNumber>
+        <mobileNumber>+420-333-444-555</mobileNumber>
         <salary>52000</salary>
         <Subject id="https://example.org/data/subject2">
             <name xml:lang="cs">Databázové systémy</name>
+            <name xml:lang="en">Database Systems</name>
             <code>NDBI025</code>
         </Subject>
         <Building id="https://example.org/data/building1">
@@ -41,10 +44,11 @@
     <Teacher id="https://example.org/data/teacher3">
         <firstName xml:lang="cs">Petr</firstName>
         <lastName xml:lang="cs">Dvořák</lastName>
-        <mobileNumber>+420345678901</mobileNumber>
+        <mobileNumber>+420-345-678-901</mobileNumber>
         <salary>48000</salary>
         <Subject id="https://example.org/data/subject4">
             <name xml:lang="cs">Lineární algebra</name>
+            <name xml:lang="en">Linear Algebra</name>
             <code>NMAI059</code>
         </Subject>
         <Building id="https://example.org/data/building2">
