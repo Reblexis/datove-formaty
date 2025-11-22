@@ -1,0 +1,3 @@
+(: Find English subject names taught by teachers with feminine surnames (ending in 'ová') :)
+declare namespace s="http://www.example.com/schema-1";
+//s:Subject[s:Teacher/s:lastName[contains(., 'ová')]]/s:name[@xml:lang='en']/text()

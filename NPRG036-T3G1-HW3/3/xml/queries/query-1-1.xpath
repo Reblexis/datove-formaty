@@ -1,0 +1,3 @@
+(: Find all students attending subjects with code starting with 'NPRG' taught by teachers earning at least 45000 :)
+declare namespace s="http://www.example.com/schema-1";
+//s:Student[s:Subject[starts-with(s:code, 'NPRG') and s:Teacher/s:salary >= 45000]]/s:firstName/text()

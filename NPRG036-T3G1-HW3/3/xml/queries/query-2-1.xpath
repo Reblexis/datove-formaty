@@ -1,0 +1,3 @@
+(: Find building names (English) with classrooms having capacity > 80 that host programming subjects :)
+declare namespace s="http://www.example.com/schema-2";
+//s:Building[s:Classroom[s:capacity > 80 and s:Subject[contains(s:code, 'PRG')]]]/s:name[@xml:lang='en']/text()

@@ -1,0 +1,3 @@
+(: Find subject codes taught by teachers who have multiple mobile numbers and earn between 45000 and 55000 :)
+declare namespace s="http://www.example.com/schema-1";
+//s:Subject[s:Teacher[count(s:mobileNumber) >= 2 and s:salary >= 45000 and s:salary <= 55000]]/s:code/text()

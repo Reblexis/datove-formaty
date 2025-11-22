@@ -1,0 +1,3 @@
+(: Find classroom names in Praha 1 buildings that host multiple subjects :)
+declare namespace s="http://www.example.com/schema-2";
+//s:Building[contains(s:address, 'Praha 1')]/s:Classroom[count(s:Subject) > 1]/s:name[@xml:lang='cs']/text()
