@@ -21,6 +21,7 @@
         <Building id="https://example.org/data/building2">
             <address xml:lang="cs">Ke Karlovu 3, 121 16 Praha 2</address>
             <name xml:lang="cs">Matematicko-fyzikální fakulta</name>
+            <name xml:lang="en">Faculty of Mathematics and Physics</name>
         </Building>
     </Teacher>
 
@@ -38,6 +39,7 @@
         <Building id="https://example.org/data/building1">
             <address xml:lang="cs">Malostranské náměstí 25, 118 00 Praha 1</address>
             <name xml:lang="cs">Malostranské náměstí</name>
+            <name xml:lang="en">Malostranske Square</name>
         </Building>
     </Teacher>
 
@@ -54,6 +56,7 @@
         <Building id="https://example.org/data/building2">
             <address xml:lang="cs">Ke Karlovu 3, 121 16 Praha 2</address>
             <name xml:lang="cs">Matematicko-fyzikální fakulta</name>
+            <name xml:lang="en">Faculty of Mathematics and Physics</name>
         </Building>
     </Teacher>
 

@@ -6,6 +6,7 @@
     <Building id="https://example.org/data/building1">
         <address xml:lang="cs">Malostranské náměstí 25, 118 00 Praha 1</address>
         <name xml:lang="cs">Malostranské náměstí</name>
+        <name xml:lang="en">Malostranske Square</name>
         <Classroom id="https://example.org/data/classroom1">
             <name xml:lang="cs">Posluchárna S1</name>
             <name xml:lang="en">S1</name>
@@ -27,7 +28,7 @@
             <capacity>80</capacity>
             <Subject id="https://example.org/data/subject2">
                 <name xml:lang="cs">Databázové systémy</name>
-                <name xml:lang="en">Database systems</name>
+                <name xml:lang="en">Database Systems</name>
                 <code>NDBI025</code>
             </Subject>
         </Classroom>
@@ -36,6 +37,7 @@
     <Building id="https://example.org/data/building2">
         <address xml:lang="cs">Ke Karlovu 3, 121 16 Praha 2</address>
         <name xml:lang="cs">Matematicko-fyzikální fakulta</name>
+        <name xml:lang="en">Faculty of Mathematics and Physics</name>
         <Classroom id="https://example.org/data/classroom3">
             <name xml:lang="cs">Učebna K11</name>
             <name xml:lang="en">K11</name>
@@ -51,6 +53,7 @@
     <Building id="https://example.org/data/building3">
         <address xml:lang="cs">Kolejní 1, 160 00 Praha 6</address>
         <name xml:lang="cs">Studentská kolej</name>
+        <name xml:lang="en">Student Dormitory</name>
     </Building>
 
 </Buildings>
