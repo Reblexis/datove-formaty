@@ -1,0 +1,268 @@
+{
+    "@context": {
+        "ex": "https://example.org/ontology/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "id": "@id",
+        "type": "@type",
+        "Specialization": "ex:Specialization",
+        "Student": "ex:Student",
+        "Subject": "ex:Subject",
+        "Teacher": "ex:Teacher",
+        "title": {
+            "@id": "ex:title",
+            "@container": "@language"
+        },
+        "numberOfStudents": {
+            "@id": "ex:numberOfStudents",
+            "@type": "xsd:integer"
+        },
+        "firstName": {
+            "@id": "ex:firstName",
+            "@container": "@language"
+        },
+        "lastName": {
+            "@id": "ex:lastName",
+            "@container": "@language"
+        },
+        "name": {
+            "@id": "ex:name",
+            "@container": "@language"
+        },
+        "code": "ex:code",
+        "salary": {
+            "@id": "ex:salary",
+            "@type": "xsd:integer"
+        },
+        "mobileNumber": "ex:mobileNumber",
+        "specializations": {
+            "@id": "ex:hasSpecialization",
+            "@type": "@id"
+        },
+        "students": {
+            "@id": "ex:hasStudent",
+            "@type": "@id"
+        },
+        "subjects": {
+            "@id": "ex:attends",
+            "@type": "@id"
+        },
+        "teachers": {
+            "@id": "ex:taughtBy",
+            "@type": "@id"
+        }
+    },
+    "specializations": [
+        {
+            "type": "Specialization",
+            "id": "https://example.org/data/spec1",
+            "title": {
+                "cs": "Informatika",
+                "en": "Computer Science"
+            },
+            "numberOfStudents": 250,
+            "students": [
+                {
+                    "type": "Student",
+                    "id": "https://example.org/data/student1",
+                    "firstName": {"cs": "Anna"},
+                    "lastName": {"cs": "Procházková"},
+                    "mobileNumber": ["+420-111-222-333"],
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject1",
+                            "name": {
+                                "cs": "Programování I",
+                                "en": "Programming I"
+                            },
+                            "code": "NPRG030",
+                            "teachers": [
+                                {
+                                    "type": "Teacher",
+                                    "id": "https://example.org/data/teacher1",
+                                    "firstName": {"cs": "Pavel"},
+                                    "lastName": {"cs": "Veselý"},
+                                    "mobileNumber": ["+420-123-456-789"],
+                                    "salary": 45000
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject2",
+                            "name": {
+                                "cs": "Databázové systémy",
+                                "en": "Database Systems"
+                            },
+                            "code": "NDBI025",
+                            "teachers": [
+                                {
+                                    "type": "Teacher",
+                                    "id": "https://example.org/data/teacher2",
+                                    "firstName": {"cs": "Marta"},
+                                    "lastName": {"cs": "Vomlelová"},
+                                    "mobileNumber": ["+420-234-567-890", "+420-333-444-555"],
+                                    "salary": 52000
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Student",
+                    "id": "https://example.org/data/student2",
+                    "firstName": {"cs": "Tomáš"},
+                    "lastName": {"cs": "Král"},
+                    "mobileNumber": ["+420-222-333-444"],
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject3",
+                            "name": {
+                                "cs": "Webové technologie",
+                                "en": "Web Technologies"
+                            },
+                            "code": "NPRG036",
+                            "teachers": [
+                                {
+                                    "type": "Teacher",
+                                    "id": "https://example.org/data/teacher1",
+                                    "firstName": {"cs": "Pavel"},
+                                    "lastName": {"cs": "Veselý"},
+                                    "mobileNumber": ["+420-123-456-789"],
+                                    "salary": 45000
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Student",
+                    "id": "https://example.org/data/student5",
+                    "firstName": {"cs": "Kateřina"},
+                    "lastName": {"cs": "Horáková"},
+                    "mobileNumber": ["+420-555-666-777"],
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject2",
+                            "name": {
+                                "cs": "Databázové systémy",
+                                "en": "Database Systems"
+                            },
+                            "code": "NDBI025",
+                            "teachers": [
+                                {
+                                    "type": "Teacher",
+                                    "id": "https://example.org/data/teacher2",
+                                    "firstName": {"cs": "Marta"},
+                                    "lastName": {"cs": "Vomlelová"},
+                                    "mobileNumber": ["+420-234-567-890", "+420-333-444-555"],
+                                    "salary": 52000
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject3",
+                            "name": {
+                                "cs": "Webové technologie",
+                                "en": "Web Technologies"
+                            },
+                            "code": "NPRG036",
+                            "teachers": [
+                                {
+                                    "type": "Teacher",
+                                    "id": "https://example.org/data/teacher1",
+                                    "firstName": {"cs": "Pavel"},
+                                    "lastName": {"cs": "Veselý"},
+                                    "mobileNumber": ["+420-123-456-789"],
+                                    "salary": 45000
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Specialization",
+            "id": "https://example.org/data/spec2",
+            "title": {
+                "cs": "Matematika",
+                "en": "Mathematics"
+            },
+            "numberOfStudents": 180,
+            "students": [
+                {
+                    "type": "Student",
+                    "id": "https://example.org/data/student3",
+                    "firstName": {"cs": "Lucie"},
+                    "lastName": {"cs": "Malá"},
+                    "mobileNumber": [],
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject4",
+                            "name": {
+                                "cs": "Lineární algebra",
+                                "en": "Linear Algebra"
+                            },
+                            "code": "NMAI059",
+                            "teachers": [
+                                {
+                                    "type": "Teacher",
+                                    "id": "https://example.org/data/teacher3",
+                                    "firstName": {"cs": "Petr"},
+                                    "lastName": {"cs": "Dvořák"},
+                                    "mobileNumber": ["+420-345-678-901"],
+                                    "salary": 48000
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Specialization",
+            "id": "https://example.org/data/spec3",
+            "title": {
+                "cs": "Fyzika",
+                "en": "Physics"
+            },
+            "numberOfStudents": 120,
+            "students": [
+                {
+                    "type": "Student",
+                    "id": "https://example.org/data/student4",
+                    "firstName": {"cs": "Martin"},
+                    "lastName": {"cs": "Černý"},
+                    "mobileNumber": ["+420-444-555-666"],
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject1",
+                            "name": {
+                                "cs": "Programování I",
+                                "en": "Programming I"
+                            },
+                            "code": "NPRG030",
+                            "teachers": [
+                                {
+                                    "type": "Teacher",
+                                    "id": "https://example.org/data/teacher1",
+                                    "firstName": {"cs": "Pavel"},
+                                    "lastName": {"cs": "Veselý"},
+                                    "mobileNumber": ["+420-123-456-789"],
+                                    "salary": 45000
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+

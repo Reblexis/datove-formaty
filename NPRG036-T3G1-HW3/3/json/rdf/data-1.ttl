@@ -1,0 +1,101 @@
+@prefix ex:  <https://example.org/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/data/student2>
+        a                ex:Student;
+        ex:attends       <https://example.org/data/subject3>;
+        ex:firstName     "Tomáš"@cs;
+        ex:lastName      "Král"@cs;
+        ex:mobileNumber  "+420-222-333-444" .
+
+<https://example.org/data/subject4>
+        a            ex:Subject;
+        ex:code      "NMAI059";
+        ex:name      "Linear Algebra"@en , "Lineární algebra"@cs;
+        ex:taughtBy  <https://example.org/data/teacher3> .
+
+<https://example.org/data/spec1>
+        a                    ex:Specialization;
+        ex:hasStudent        <https://example.org/data/student5> , <https://example.org/data/student2> , <https://example.org/data/student1>;
+        ex:numberOfStudents  250;
+        ex:title             "Computer Science"@en , "Informatika"@cs .
+
+<https://example.org/data/teacher1>
+        a                ex:Teacher;
+        ex:firstName     "Pavel"@cs;
+        ex:lastName      "Veselý"@cs;
+        ex:mobileNumber  "+420-123-456-789";
+        ex:salary        45000 .
+
+<https://example.org/data/student4>
+        a                ex:Student;
+        ex:attends       <https://example.org/data/subject1>;
+        ex:firstName     "Martin"@cs;
+        ex:lastName      "Černý"@cs;
+        ex:mobileNumber  "+420-444-555-666" .
+
+<https://example.org/data/teacher3>
+        a                ex:Teacher;
+        ex:firstName     "Petr"@cs;
+        ex:lastName      "Dvořák"@cs;
+        ex:mobileNumber  "+420-345-678-901";
+        ex:salary        48000 .
+
+[ ex:hasSpecialization  <https://example.org/data/spec3> , <https://example.org/data/spec2> , <https://example.org/data/spec1> ] .
+
+<https://example.org/data/spec3>
+        a                    ex:Specialization;
+        ex:hasStudent        <https://example.org/data/student4>;
+        ex:numberOfStudents  120;
+        ex:title             "Physics"@en , "Fyzika"@cs .
+
+<https://example.org/data/subject1>
+        a            ex:Subject;
+        ex:code      "NPRG030";
+        ex:name      "Programming I"@en , "Programování I"@cs;
+        ex:taughtBy  <https://example.org/data/teacher1> .
+
+<https://example.org/data/student1>
+        a                ex:Student;
+        ex:attends       <https://example.org/data/subject2> , <https://example.org/data/subject1>;
+        ex:firstName     "Anna"@cs;
+        ex:lastName      "Procházková"@cs;
+        ex:mobileNumber  "+420-111-222-333" .
+
+<https://example.org/data/subject3>
+        a            ex:Subject;
+        ex:code      "NPRG036";
+        ex:name      "Web Technologies"@en , "Webové technologie"@cs;
+        ex:taughtBy  <https://example.org/data/teacher1> .
+
+<https://example.org/data/student3>
+        a             ex:Student;
+        ex:attends    <https://example.org/data/subject4>;
+        ex:firstName  "Lucie"@cs;
+        ex:lastName   "Malá"@cs .
+
+<https://example.org/data/teacher2>
+        a                ex:Teacher;
+        ex:firstName     "Marta"@cs;
+        ex:lastName      "Vomlelová"@cs;
+        ex:mobileNumber  "+420-333-444-555" , "+420-234-567-890";
+        ex:salary        52000 .
+
+<https://example.org/data/spec2>
+        a                    ex:Specialization;
+        ex:hasStudent        <https://example.org/data/student3>;
+        ex:numberOfStudents  180;
+        ex:title             "Mathematics"@en , "Matematika"@cs .
+
+<https://example.org/data/student5>
+        a                ex:Student;
+        ex:attends       <https://example.org/data/subject3> , <https://example.org/data/subject2>;
+        ex:firstName     "Kateřina"@cs;
+        ex:lastName      "Horáková"@cs;
+        ex:mobileNumber  "+420-555-666-777" .
+
+<https://example.org/data/subject2>
+        a            ex:Subject;
+        ex:code      "NDBI025";
+        ex:name      "Database Systems"@en , "Databázové systémy"@cs;
+        ex:taughtBy  <https://example.org/data/teacher2> .

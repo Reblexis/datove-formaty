@@ -1,0 +1,140 @@
+{
+    "@context": {
+        "ex": "https://example.org/ontology/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "id": "@id",
+        "type": "@type",
+        "Building": "ex:Building",
+        "Classroom": "ex:Classroom",
+        "Subject": "ex:Subject",
+        "address": {
+            "@id": "ex:address",
+            "@container": "@language"
+        },
+        "name": {
+            "@id": "ex:name",
+            "@container": "@language"
+        },
+        "capacity": {
+            "@id": "ex:capacity",
+            "@type": "xsd:integer"
+        },
+        "code": "ex:code",
+        "buildings": {
+            "@id": "ex:hasBuilding",
+            "@type": "@id"
+        },
+        "classrooms": {
+            "@id": "ex:hasClassroom",
+            "@type": "@id"
+        },
+        "subjects": {
+            "@id": "ex:hostedIn",
+            "@type": "@id"
+        }
+    },
+    "buildings": [
+        {
+            "type": "Building",
+            "id": "https://example.org/data/building1",
+            "address": {"cs": "Malostranské náměstí 25, 118 00 Praha 1"},
+            "name": {
+                "cs": "Malostranské náměstí",
+                "en": "Malostranske Square"
+            },
+            "classrooms": [
+                {
+                    "type": "Classroom",
+                    "id": "https://example.org/data/classroom1",
+                    "name": {
+                        "cs": "Posluchárna S1",
+                        "en": "S1"
+                    },
+                    "capacity": 150,
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject1",
+                            "name": {
+                                "cs": "Programování I",
+                                "en": "Programming I"
+                            },
+                            "code": "NPRG030"
+                        },
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject3",
+                            "name": {
+                                "cs": "Webové technologie",
+                                "en": "Web Technologies"
+                            },
+                            "code": "NPRG036"
+                        }
+                    ]
+                },
+                {
+                    "type": "Classroom",
+                    "id": "https://example.org/data/classroom2",
+                    "name": {
+                        "cs": "Posluchárna S5",
+                        "en": "S5"
+                    },
+                    "capacity": 80,
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject2",
+                            "name": {
+                                "cs": "Databázové systémy",
+                                "en": "Database Systems"
+                            },
+                            "code": "NDBI025"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Building",
+            "id": "https://example.org/data/building2",
+            "address": {"cs": "Ke Karlovu 3, 121 16 Praha 2"},
+            "name": {
+                "cs": "Matematicko-fyzikální fakulta",
+                "en": "Faculty of Mathematics and Physics"
+            },
+            "classrooms": [
+                {
+                    "type": "Classroom",
+                    "id": "https://example.org/data/classroom3",
+                    "name": {
+                        "cs": "Učebna K11",
+                        "en": "K11"
+                    },
+                    "capacity": 40,
+                    "subjects": [
+                        {
+                            "type": "Subject",
+                            "id": "https://example.org/data/subject4",
+                            "name": {
+                                "cs": "Lineární algebra",
+                                "en": "Linear Algebra"
+                            },
+                            "code": "NMAI059"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Building",
+            "id": "https://example.org/data/building3",
+            "address": {"cs": "Kolejní 1, 160 00 Praha 6"},
+            "name": {
+                "cs": "Studentská kolej",
+                "en": "Student Dormitory"
+            },
+            "classrooms": []
+        }
+    ]
+}
+

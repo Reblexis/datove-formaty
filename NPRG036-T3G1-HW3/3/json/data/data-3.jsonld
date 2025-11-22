@@ -1,0 +1,141 @@
+{
+    "@context": {
+        "ex": "https://example.org/ontology/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "id": "@id",
+        "type": "@type",
+        "Teacher": "ex:Teacher",
+        "Subject": "ex:Subject",
+        "Building": "ex:Building",
+        "firstName": {
+            "@id": "ex:firstName",
+            "@container": "@language"
+        },
+        "lastName": {
+            "@id": "ex:lastName",
+            "@container": "@language"
+        },
+        "name": {
+            "@id": "ex:name",
+            "@container": "@language"
+        },
+        "address": {
+            "@id": "ex:address",
+            "@container": "@language"
+        },
+        "salary": {
+            "@id": "ex:salary",
+            "@type": "xsd:integer"
+        },
+        "code": "ex:code",
+        "mobileNumber": "ex:mobileNumber",
+        "teachers": {
+            "@id": "ex:hasTeacher",
+            "@type": "@id"
+        },
+        "subjects": {
+            "@id": "ex:teaches",
+            "@type": "@id"
+        },
+        "resides": {
+            "@id": "ex:resides",
+            "@type": "@id"
+        }
+    },
+    "teachers": [
+        {
+            "type": "Teacher",
+            "id": "https://example.org/data/teacher1",
+            "firstName": {"cs": "Pavel"},
+            "lastName": {"cs": "Veselý"},
+            "mobileNumber": ["+420-123-456-789"],
+            "salary": 45000,
+            "subjects": [
+                {
+                    "type": "Subject",
+                    "id": "https://example.org/data/subject1",
+                    "name": {
+                        "cs": "Programování I",
+                        "en": "Programming I"
+                    },
+                    "code": "NPRG030"
+                },
+                {
+                    "type": "Subject",
+                    "id": "https://example.org/data/subject3",
+                    "name": {
+                        "cs": "Webové technologie",
+                        "en": "Web Technologies"
+                    },
+                    "code": "NPRG036"
+                }
+            ],
+            "resides": {
+                "type": "Building",
+                "id": "https://example.org/data/building2",
+                "address": {"cs": "Ke Karlovu 3, 121 16 Praha 2"},
+                "name": {
+                    "cs": "Matematicko-fyzikální fakulta",
+                    "en": "Faculty of Mathematics and Physics"
+                }
+            }
+        },
+        {
+            "type": "Teacher",
+            "id": "https://example.org/data/teacher2",
+            "firstName": {"cs": "Marta"},
+            "lastName": {"cs": "Vomlelová"},
+            "mobileNumber": ["+420-234-567-890", "+420-333-444-555"],
+            "salary": 52000,
+            "subjects": [
+                {
+                    "type": "Subject",
+                    "id": "https://example.org/data/subject2",
+                    "name": {
+                        "cs": "Databázové systémy",
+                        "en": "Database Systems"
+                    },
+                    "code": "NDBI025"
+                }
+            ],
+            "resides": {
+                "type": "Building",
+                "id": "https://example.org/data/building1",
+                "address": {"cs": "Malostranské náměstí 25, 118 00 Praha 1"},
+                "name": {
+                    "cs": "Malostranské náměstí",
+                    "en": "Malostranske Square"
+                }
+            }
+        },
+        {
+            "type": "Teacher",
+            "id": "https://example.org/data/teacher3",
+            "firstName": {"cs": "Petr"},
+            "lastName": {"cs": "Dvořák"},
+            "mobileNumber": ["+420-345-678-901"],
+            "salary": 48000,
+            "subjects": [
+                {
+                    "type": "Subject",
+                    "id": "https://example.org/data/subject4",
+                    "name": {
+                        "cs": "Lineární algebra",
+                        "en": "Linear Algebra"
+                    },
+                    "code": "NMAI059"
+                }
+            ],
+            "resides": {
+                "type": "Building",
+                "id": "https://example.org/data/building2",
+                "address": {"cs": "Ke Karlovu 3, 121 16 Praha 2"},
+                "name": {
+                    "cs": "Matematicko-fyzikální fakulta",
+                    "en": "Faculty of Mathematics and Physics"
+                }
+            }
+        }
+    ]
+}
+

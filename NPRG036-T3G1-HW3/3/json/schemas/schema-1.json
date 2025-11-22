@@ -1,0 +1,98 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.org/schema-1.json",
+    "title": "Specializations with Students and Subjects",
+    "type": "object",
+    "$defs": {
+        "langString": {
+            "type": "object",
+            "properties": {
+                "cs": {"type": "string"},
+                "en": {"type": "string"}
+            },
+            "anyOf": [
+                {"required": ["cs"]},
+                {"required": ["en"]}
+            ]
+        },
+        "person": {
+            "type": "object",
+            "required": ["id", "firstName", "lastName"],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uri"
+                },
+                "firstName": {"$ref": "#/$defs/langString"},
+                "lastName": {"$ref": "#/$defs/langString"},
+                "mobileNumber": {
+                    "type": "array",
+                    "items": {"type": "string"}
+                }
+            }
+        }
+    },
+    "properties": {
+        "specializations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["id", "title", "numberOfStudents"],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "title": {"$ref": "#/$defs/langString"},
+                    "numberOfStudents": {"type": "integer"},
+                    "students": {
+                        "type": "array",
+                        "items": {
+                            "allOf": [
+                                {"$ref": "#/$defs/person"},
+                                {
+                                    "type": "object",
+                                    "required": ["subjects"],
+                                    "properties": {
+                                        "subjects": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "required": ["id", "name", "code", "teachers"],
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uri"
+                                                    },
+                                                    "name": {"$ref": "#/$defs/langString"},
+                                                    "code": {"type": "string"},
+                                                    "teachers": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "allOf": [
+                                                                {"$ref": "#/$defs/person"},
+                                                                {
+                                                                    "type": "object",
+                                                                    "required": ["salary"],
+                                                                    "properties": {
+                                                                        "salary": {"type": "integer"}
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["specializations"]
+}
+

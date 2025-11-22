@@ -1,0 +1,61 @@
+@prefix ex:  <https://example.org/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/data/teacher1>
+        a                ex:Teacher;
+        ex:firstName     "Pavel"@cs;
+        ex:lastName      "Veselý"@cs;
+        ex:mobileNumber  "+420-123-456-789";
+        ex:resides       <https://example.org/data/building2>;
+        ex:salary        45000;
+        ex:teaches       <https://example.org/data/subject3> , <https://example.org/data/subject1> .
+
+<https://example.org/data/subject4>
+        a        ex:Subject;
+        ex:code  "NMAI059";
+        ex:name  "Linear Algebra"@en , "Lineární algebra"@cs .
+
+<https://example.org/data/teacher3>
+        a                ex:Teacher;
+        ex:firstName     "Petr"@cs;
+        ex:lastName      "Dvořák"@cs;
+        ex:mobileNumber  "+420-345-678-901";
+        ex:resides       <https://example.org/data/building2>;
+        ex:salary        48000;
+        ex:teaches       <https://example.org/data/subject4> .
+
+<https://example.org/data/subject1>
+        a        ex:Subject;
+        ex:code  "NPRG030";
+        ex:name  "Programming I"@en , "Programování I"@cs .
+
+<https://example.org/data/building2>
+        a           ex:Building;
+        ex:address  "Ke Karlovu 3, 121 16 Praha 2"@cs;
+        ex:name     "Faculty of Mathematics and Physics"@en , "Matematicko-fyzikální fakulta"@cs .
+
+<https://example.org/data/subject3>
+        a        ex:Subject;
+        ex:code  "NPRG036";
+        ex:name  "Web Technologies"@en , "Webové technologie"@cs .
+
+<https://example.org/data/teacher2>
+        a                ex:Teacher;
+        ex:firstName     "Marta"@cs;
+        ex:lastName      "Vomlelová"@cs;
+        ex:mobileNumber  "+420-333-444-555" , "+420-234-567-890";
+        ex:resides       <https://example.org/data/building1>;
+        ex:salary        52000;
+        ex:teaches       <https://example.org/data/subject2> .
+
+<https://example.org/data/building1>
+        a           ex:Building;
+        ex:address  "Malostranské náměstí 25, 118 00 Praha 1"@cs;
+        ex:name     "Malostranske Square"@en , "Malostranské náměstí"@cs .
+
+[ ex:hasTeacher  <https://example.org/data/teacher3> , <https://example.org/data/teacher2> , <https://example.org/data/teacher1> ] .
+
+<https://example.org/data/subject2>
+        a        ex:Subject;
+        ex:code  "NDBI025";
+        ex:name  "Database Systems"@en , "Databázové systémy"@cs .

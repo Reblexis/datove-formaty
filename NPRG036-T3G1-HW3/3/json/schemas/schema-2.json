@@ -1,0 +1,68 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.org/schema-2.json",
+    "title": "Buildings with Classrooms and Subjects",
+    "type": "object",
+    "$defs": {
+        "langString": {
+            "type": "object",
+            "properties": {
+                "cs": {"type": "string"},
+                "en": {"type": "string"}
+            },
+            "anyOf": [
+                {"required": ["cs"]},
+                {"required": ["en"]}
+            ]
+        }
+    },
+    "properties": {
+        "buildings": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["id", "address", "name"],
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "address": {"$ref": "#/$defs/langString"},
+                    "name": {"$ref": "#/$defs/langString"},
+                    "classrooms": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "required": ["id", "capacity", "name"],
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                "capacity": {"type": "integer"},
+                                "name": {"$ref": "#/$defs/langString"},
+                                "subjects": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "required": ["id", "name", "code"],
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "format": "uri"
+                                            },
+                                            "name": {"$ref": "#/$defs/langString"},
+                                            "code": {"type": "string"}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": ["buildings"]
+}
+
