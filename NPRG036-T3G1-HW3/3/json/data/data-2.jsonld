@@ -2,8 +2,7 @@
     "@context": {
         "ex": "https://example.org/vocabulary/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "id": "@id",
-        "type": "@type",
+        "@vocab": "https://example.org/vocabulary/",
         "Building": "ex:Building",
         "Classroom": "ex:Classroom",
         "Subject": "ex:Subject",
@@ -11,7 +10,15 @@
             "@id": "ex:address",
             "@container": "@language"
         },
-        "name": {
+        "buildingName": {
+            "@id": "ex:buildingName",
+            "@container": "@language"
+        },
+        "classroomName": {
+            "@id": "ex:classroomName",
+            "@container": "@language"
+        },
+        "subjectName": {
             "@id": "ex:name",
             "@container": "@language"
         },
@@ -20,51 +27,45 @@
             "@type": "xsd:integer"
         },
         "code": "ex:code",
-        "buildings": {
-            "@id": "ex:hasBuilding",
-            "@type": "@id"
-        },
         "classrooms": {
-            "@id": "ex:hasClassroom",
-            "@type": "@id"
+            "@reverse": "ex:is_part_of"
         },
         "subjects": {
-            "@id": "ex:hostedIn",
-            "@type": "@id"
+            "@reverse": "ex:takes_place"
         }
     },
-    "buildings": [
+    "@graph": [
         {
-            "type": "Building",
-            "id": "https://example.org/data/building1",
+            "@type": "Building",
+            "@id": "https://example.org/data/building1",
             "address": {"cs": "Malostranské náměstí 25, 118 00 Praha 1"},
-            "name": {
+            "buildingName": {
                 "cs": "Malostranské náměstí",
                 "en": "Malostranske Square"
             },
             "classrooms": [
                 {
-                    "type": "Classroom",
-                    "id": "https://example.org/data/classroom1",
-                    "name": {
+                    "@type": "Classroom",
+                    "@id": "https://example.org/data/classroom1",
+                    "classroomName": {
                         "cs": "Posluchárna S1",
                         "en": "S1"
                     },
                     "capacity": 150,
                     "subjects": [
                         {
-                            "type": "Subject",
-                            "id": "https://example.org/data/subject1",
-                            "name": {
+                            "@type": "Subject",
+                            "@id": "https://example.org/data/subject1",
+                            "subjectName": {
                                 "cs": "Programování I",
                                 "en": "Programming I"
                             },
                             "code": "NPRG030"
                         },
                         {
-                            "type": "Subject",
-                            "id": "https://example.org/data/subject3",
-                            "name": {
+                            "@type": "Subject",
+                            "@id": "https://example.org/data/subject3",
+                            "subjectName": {
                                 "cs": "Webové technologie",
                                 "en": "Web Technologies"
                             },
@@ -73,18 +74,18 @@
                     ]
                 },
                 {
-                    "type": "Classroom",
-                    "id": "https://example.org/data/classroom2",
-                    "name": {
+                    "@type": "Classroom",
+                    "@id": "https://example.org/data/classroom2",
+                    "classroomName": {
                         "cs": "Posluchárna S5",
                         "en": "S5"
                     },
                     "capacity": 80,
                     "subjects": [
                         {
-                            "type": "Subject",
-                            "id": "https://example.org/data/subject2",
-                            "name": {
+                            "@type": "Subject",
+                            "@id": "https://example.org/data/subject2",
+                            "subjectName": {
                                 "cs": "Databázové systémy",
                                 "en": "Database Systems"
                             },
@@ -95,27 +96,27 @@
             ]
         },
         {
-            "type": "Building",
-            "id": "https://example.org/data/building2",
+            "@type": "Building",
+            "@id": "https://example.org/data/building2",
             "address": {"cs": "Ke Karlovu 3, 121 16 Praha 2"},
-            "name": {
+            "buildingName": {
                 "cs": "Matematicko-fyzikální fakulta",
                 "en": "Faculty of Mathematics and Physics"
             },
             "classrooms": [
                 {
-                    "type": "Classroom",
-                    "id": "https://example.org/data/classroom3",
-                    "name": {
+                    "@type": "Classroom",
+                    "@id": "https://example.org/data/classroom3",
+                    "classroomName": {
                         "cs": "Učebna K11",
                         "en": "K11"
                     },
                     "capacity": 40,
                     "subjects": [
                         {
-                            "type": "Subject",
-                            "id": "https://example.org/data/subject4",
-                            "name": {
+                            "@type": "Subject",
+                            "@id": "https://example.org/data/subject4",
+                            "subjectName": {
                                 "cs": "Lineární algebra",
                                 "en": "Linear Algebra"
                             },
@@ -126,16 +127,13 @@
             ]
         },
         {
-            "type": "Building",
-            "id": "https://example.org/data/building3",
+            "@type": "Building",
+            "@id": "https://example.org/data/building3",
             "address": {"cs": "Kolejní 1, 160 00 Praha 6"},
-            "name": {
+            "buildingName": {
                 "cs": "Studentská kolej",
                 "en": "Student Dormitory"
-            },
-            "classrooms": []
+            }
         }
     ]
 }
-
-

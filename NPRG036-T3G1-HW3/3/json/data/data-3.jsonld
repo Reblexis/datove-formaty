@@ -2,8 +2,7 @@
     "@context": {
         "ex": "https://example.org/vocabulary/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "id": "@id",
-        "type": "@type",
+        "@vocab": "https://example.org/vocabulary/",
         "Teacher": "ex:Teacher",
         "Subject": "ex:Subject",
         "Building": "ex:Building",
@@ -15,8 +14,12 @@
             "@id": "ex:lastName",
             "@container": "@language"
         },
-        "name": {
+        "subjectName": {
             "@id": "ex:name",
+            "@container": "@language"
+        },
+        "buildingName": {
+            "@id": "ex:buildingName",
             "@container": "@language"
         },
         "address": {
@@ -28,42 +31,35 @@
             "@type": "xsd:integer"
         },
         "code": "ex:code",
-        "mobileNumber": "ex:mobileNumber",
-        "teachers": {
-            "@id": "ex:hasTeacher",
+        "mobileNumber": {
+            "@id": "ex:mobileNumber",
             "@type": "@id"
         },
-        "subjects": {
-            "@id": "ex:teaches",
-            "@type": "@id"
-        },
-        "resides": {
-            "@id": "ex:resides",
-            "@type": "@id"
-        }
+        "subjects": "ex:teaches",
+        "resides": "ex:resides"
     },
-    "teachers": [
+    "@graph": [
         {
-            "type": "Teacher",
-            "id": "https://example.org/data/teacher1",
+            "@type": "Teacher",
+            "@id": "https://example.org/data/teacher1",
             "firstName": {"cs": "Pavel"},
             "lastName": {"cs": "Veselý"},
-            "mobileNumber": ["+420-123-456-789"],
+            "mobileNumber": ["tel:+420-123-456-789"],
             "salary": 45000,
             "subjects": [
                 {
-                    "type": "Subject",
-                    "id": "https://example.org/data/subject1",
-                    "name": {
+                    "@type": "Subject",
+                    "@id": "https://example.org/data/subject1",
+                    "subjectName": {
                         "cs": "Programování I",
                         "en": "Programming I"
                     },
                     "code": "NPRG030"
                 },
                 {
-                    "type": "Subject",
-                    "id": "https://example.org/data/subject3",
-                    "name": {
+                    "@type": "Subject",
+                    "@id": "https://example.org/data/subject3",
+                    "subjectName": {
                         "cs": "Webové technologie",
                         "en": "Web Technologies"
                     },
@@ -71,27 +67,27 @@
                 }
             ],
             "resides": {
-                "type": "Building",
-                "id": "https://example.org/data/building2",
+                "@type": "Building",
+                "@id": "https://example.org/data/building2",
                 "address": {"cs": "Ke Karlovu 3, 121 16 Praha 2"},
-                "name": {
+                "buildingName": {
                     "cs": "Matematicko-fyzikální fakulta",
                     "en": "Faculty of Mathematics and Physics"
                 }
             }
         },
         {
-            "type": "Teacher",
-            "id": "https://example.org/data/teacher2",
+            "@type": "Teacher",
+            "@id": "https://example.org/data/teacher2",
             "firstName": {"cs": "Marta"},
             "lastName": {"cs": "Vomlelová"},
-            "mobileNumber": ["+420-234-567-890", "+420-333-444-555"],
+            "mobileNumber": ["tel:+420-234-567-890", "tel:+420-333-444-555"],
             "salary": 52000,
             "subjects": [
                 {
-                    "type": "Subject",
-                    "id": "https://example.org/data/subject2",
-                    "name": {
+                    "@type": "Subject",
+                    "@id": "https://example.org/data/subject2",
+                    "subjectName": {
                         "cs": "Databázové systémy",
                         "en": "Database Systems"
                     },
@@ -99,27 +95,27 @@
                 }
             ],
             "resides": {
-                "type": "Building",
-                "id": "https://example.org/data/building1",
+                "@type": "Building",
+                "@id": "https://example.org/data/building1",
                 "address": {"cs": "Malostranské náměstí 25, 118 00 Praha 1"},
-                "name": {
+                "buildingName": {
                     "cs": "Malostranské náměstí",
                     "en": "Malostranske Square"
                 }
             }
         },
         {
-            "type": "Teacher",
-            "id": "https://example.org/data/teacher3",
+            "@type": "Teacher",
+            "@id": "https://example.org/data/teacher3",
             "firstName": {"cs": "Petr"},
             "lastName": {"cs": "Dvořák"},
-            "mobileNumber": ["+420-345-678-901"],
+            "mobileNumber": ["tel:+420-345-678-901"],
             "salary": 48000,
             "subjects": [
                 {
-                    "type": "Subject",
-                    "id": "https://example.org/data/subject4",
-                    "name": {
+                    "@type": "Subject",
+                    "@id": "https://example.org/data/subject4",
+                    "subjectName": {
                         "cs": "Lineární algebra",
                         "en": "Linear Algebra"
                     },
@@ -127,10 +123,10 @@
                 }
             ],
             "resides": {
-                "type": "Building",
-                "id": "https://example.org/data/building2",
+                "@type": "Building",
+                "@id": "https://example.org/data/building2",
                 "address": {"cs": "Ke Karlovu 3, 121 16 Praha 2"},
-                "name": {
+                "buildingName": {
                     "cs": "Matematicko-fyzikální fakulta",
                     "en": "Faculty of Mathematics and Physics"
                 }
@@ -138,5 +134,3 @@
         }
     ]
 }
-
-
