@@ -64,7 +64,7 @@
                                                         "type": "string",
                                                         "format": "uri"
                                                     },
-                                                    "name": {"$ref": "#/$defs/langString"},
+                                                    "subjectName": {"$ref": "#/$defs/langString"},
                                                     "code": {"type": "string"},
                                                     "teachers": {
                                                         "type": "array",

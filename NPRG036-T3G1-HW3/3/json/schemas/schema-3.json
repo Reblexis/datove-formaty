@@ -49,12 +49,12 @@
                                     "type": "object",
                                     "required": ["id", "name", "code"],
                                     "properties": {
-                                        "id": {
-                                            "type": "string",
-                                            "format": "uri"
-                                        },
-                                        "name": {"$ref": "#/$defs/langString"},
-                                        "code": {"type": "string"}
+                                            "id": {
+                                                "type": "string",
+                                                "format": "uri"
+                                            },
+                                            "subjectName": {"$ref": "#/$defs/langString"},
+                                            "code": {"type": "string"}
                                     }
                                 }
                             },
@@ -67,7 +67,7 @@
                                         "format": "uri"
                                     },
                                     "address": {"$ref": "#/$defs/langString"},
-                                    "name": {"$ref": "#/$defs/langString"}
+                                    "buildingName": {"$ref": "#/$defs/langString"}
                                 }
                             }
                         }

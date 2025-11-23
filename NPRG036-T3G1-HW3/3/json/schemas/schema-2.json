@@ -28,7 +28,7 @@
                         "format": "uri"
                     },
                     "address": {"$ref": "#/$defs/langString"},
-                    "name": {"$ref": "#/$defs/langString"},
+                    "buildingName": {"$ref": "#/$defs/langString"},
                     "classrooms": {
                         "type": "array",
                         "items": {
@@ -40,19 +40,19 @@
                                     "format": "uri"
                                 },
                                 "capacity": {"type": "integer"},
-                                "name": {"$ref": "#/$defs/langString"},
+                                "classroomName": {"$ref": "#/$defs/langString"},
                                 "subjects": {
                                     "type": "array",
                                     "items": {
                                         "type": "object",
                                         "required": ["id", "name", "code"],
                                         "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "format": "uri"
-                                            },
-                                            "name": {"$ref": "#/$defs/langString"},
-                                            "code": {"type": "string"}
+                                                    "id": {
+                                                        "type": "string",
+                                                        "format": "uri"
+                                                    },
+                                                    "subjectName": {"$ref": "#/$defs/langString"},
+                                                    "code": {"type": "string"}
                                         }
                                     }
                                 }
