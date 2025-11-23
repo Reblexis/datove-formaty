@@ -1,4 +1,4 @@
-@prefix ex:  <https://example.org/ontology/> .
+@prefix ex:  <https://example.org/vocabulary/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/data/classroom1>
@@ -6,8 +6,6 @@
         ex:capacity  150;
         ex:hostedIn  <https://example.org/data/subject3> , <https://example.org/data/subject1>;
         ex:name      "S1"@en , "Posluchárna S1"@cs .
-
-[ ex:hasBuilding  <https://example.org/data/building3> , <https://example.org/data/building2> , <https://example.org/data/building1> ] .
 
 <https://example.org/data/subject4>
         a        ex:Subject;
@@ -30,6 +28,8 @@
         ex:address       "Ke Karlovu 3, 121 16 Praha 2"@cs;
         ex:hasClassroom  <https://example.org/data/classroom3>;
         ex:name          "Faculty of Mathematics and Physics"@en , "Matematicko-fyzikální fakulta"@cs .
+
+[ ex:hasBuilding  <https://example.org/data/building3> , <https://example.org/data/building2> , <https://example.org/data/building1> ] .
 
 <https://example.org/data/subject3>
         a        ex:Subject;

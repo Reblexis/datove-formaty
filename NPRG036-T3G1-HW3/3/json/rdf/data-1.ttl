@@ -1,4 +1,4 @@
-@prefix ex:  <https://example.org/ontology/> .
+@prefix ex:  <https://example.org/vocabulary/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/data/student2>
@@ -40,8 +40,6 @@
         ex:lastName      "Dvořák"@cs;
         ex:mobileNumber  "+420-345-678-901";
         ex:salary        48000 .
-
-[ ex:hasSpecialization  <https://example.org/data/spec3> , <https://example.org/data/spec2> , <https://example.org/data/spec1> ] .
 
 <https://example.org/data/spec3>
         a                    ex:Specialization;
@@ -86,6 +84,8 @@
         ex:hasStudent        <https://example.org/data/student3>;
         ex:numberOfStudents  180;
         ex:title             "Mathematics"@en , "Matematika"@cs .
+
+[ ex:hasSpecialization  <https://example.org/data/spec3> , <https://example.org/data/spec2> , <https://example.org/data/spec1> ] .
 
 <https://example.org/data/student5>
         a                ex:Student;

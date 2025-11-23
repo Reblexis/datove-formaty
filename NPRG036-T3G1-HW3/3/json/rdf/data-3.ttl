@@ -1,4 +1,4 @@
-@prefix ex:  <https://example.org/ontology/> .
+@prefix ex:  <https://example.org/vocabulary/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/data/teacher1>
@@ -48,12 +48,12 @@
         ex:salary        52000;
         ex:teaches       <https://example.org/data/subject2> .
 
+[ ex:hasTeacher  <https://example.org/data/teacher3> , <https://example.org/data/teacher2> , <https://example.org/data/teacher1> ] .
+
 <https://example.org/data/building1>
         a           ex:Building;
         ex:address  "Malostranské náměstí 25, 118 00 Praha 1"@cs;
         ex:name     "Malostranske Square"@en , "Malostranské náměstí"@cs .
-
-[ ex:hasTeacher  <https://example.org/data/teacher3> , <https://example.org/data/teacher2> , <https://example.org/data/teacher1> ] .
 
 <https://example.org/data/subject2>
         a        ex:Subject;
