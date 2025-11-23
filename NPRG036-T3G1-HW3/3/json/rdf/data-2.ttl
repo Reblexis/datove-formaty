@@ -1,59 +1,60 @@
+@prefix :    <https://example.org/vocabulary/> .
 @prefix ex:  <https://example.org/vocabulary/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/data/classroom1>
-        a            ex:Classroom;
-        ex:capacity  150;
-        ex:hostedIn  <https://example.org/data/subject3> , <https://example.org/data/subject1>;
-        ex:name      "S1"@en , "Posluchárna S1"@cs .
+        a                 ex:Classroom;
+        ex:capacity       150;
+        ex:classroomName  "S1"@en , "Posluchárna S1"@cs;
+        ex:is_part_of     <https://example.org/data/building1> .
 
 <https://example.org/data/subject4>
-        a        ex:Subject;
-        ex:code  "NMAI059";
-        ex:name  "Linear Algebra"@en , "Lineární algebra"@cs .
+        a               ex:Subject;
+        ex:code         "NMAI059";
+        ex:name         "Linear Algebra"@en , "Lineární algebra"@cs;
+        ex:takes_place  <https://example.org/data/classroom3> .
 
 <https://example.org/data/classroom3>
-        a            ex:Classroom;
-        ex:capacity  40;
-        ex:hostedIn  <https://example.org/data/subject4>;
-        ex:name      "K11"@en , "Učebna K11"@cs .
+        a                 ex:Classroom;
+        ex:capacity       40;
+        ex:classroomName  "K11"@en , "Učebna K11"@cs;
+        ex:is_part_of     <https://example.org/data/building2> .
 
 <https://example.org/data/subject1>
-        a        ex:Subject;
-        ex:code  "NPRG030";
-        ex:name  "Programming I"@en , "Programování I"@cs .
+        a               ex:Subject;
+        ex:code         "NPRG030";
+        ex:name         "Programming I"@en , "Programování I"@cs;
+        ex:takes_place  <https://example.org/data/classroom1> .
 
 <https://example.org/data/building2>
         a                ex:Building;
         ex:address       "Ke Karlovu 3, 121 16 Praha 2"@cs;
-        ex:hasClassroom  <https://example.org/data/classroom3>;
-        ex:name          "Faculty of Mathematics and Physics"@en , "Matematicko-fyzikální fakulta"@cs .
-
-[ ex:hasBuilding  <https://example.org/data/building3> , <https://example.org/data/building2> , <https://example.org/data/building1> ] .
+        ex:buildingName  "Faculty of Mathematics and Physics"@en , "Matematicko-fyzikální fakulta"@cs .
 
 <https://example.org/data/subject3>
-        a        ex:Subject;
-        ex:code  "NPRG036";
-        ex:name  "Web Technologies"@en , "Webové technologie"@cs .
+        a               ex:Subject;
+        ex:code         "NPRG036";
+        ex:name         "Web Technologies"@en , "Webové technologie"@cs;
+        ex:takes_place  <https://example.org/data/classroom1> .
 
 <https://example.org/data/classroom2>
-        a            ex:Classroom;
-        ex:capacity  80;
-        ex:hostedIn  <https://example.org/data/subject2>;
-        ex:name      "S5"@en , "Posluchárna S5"@cs .
+        a                 ex:Classroom;
+        ex:capacity       80;
+        ex:classroomName  "S5"@en , "Posluchárna S5"@cs;
+        ex:is_part_of     <https://example.org/data/building1> .
 
 <https://example.org/data/building1>
         a                ex:Building;
         ex:address       "Malostranské náměstí 25, 118 00 Praha 1"@cs;
-        ex:hasClassroom  <https://example.org/data/classroom2> , <https://example.org/data/classroom1>;
-        ex:name          "Malostranske Square"@en , "Malostranské náměstí"@cs .
+        ex:buildingName  "Malostranske Square"@en , "Malostranské náměstí"@cs .
 
 <https://example.org/data/subject2>
-        a        ex:Subject;
-        ex:code  "NDBI025";
-        ex:name  "Database Systems"@en , "Databázové systémy"@cs .
+        a               ex:Subject;
+        ex:code         "NDBI025";
+        ex:name         "Database Systems"@en , "Databázové systémy"@cs;
+        ex:takes_place  <https://example.org/data/classroom2> .
 
 <https://example.org/data/building3>
-        a           ex:Building;
-        ex:address  "Kolejní 1, 160 00 Praha 6"@cs;
-        ex:name     "Student Dormitory"@en , "Studentská kolej"@cs .
+        a                ex:Building;
+        ex:address       "Kolejní 1, 160 00 Praha 6"@cs;
+        ex:buildingName  "Student Dormitory"@en , "Studentská kolej"@cs .

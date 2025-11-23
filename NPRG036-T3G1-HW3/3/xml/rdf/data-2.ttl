@@ -4,15 +4,15 @@
 ######################### BUILDINGS #########################
 
 data:building1 a ex:Building ;
-    ex:buildingName "Malostranské náměstí"@cs ;
+    ex:buildingName "Malostranské náměstí"@cs, "Malostranske Square"@en ;
     ex:address "Malostranské náměstí 25, 118 00 Praha 1"@cs .
 
 data:building2 a ex:Building ;
-    ex:buildingName "Matematicko-fyzikální fakulta"@cs ;
+    ex:buildingName "Matematicko-fyzikální fakulta"@cs, "Faculty of Mathematics and Physics"@en ;
     ex:address "Ke Karlovu 3, 121 16 Praha 2"@cs .
 
 data:building3 a ex:Building ;
-    ex:buildingName "Studentská kolej"@cs ;
+    ex:buildingName "Studentská kolej"@cs, "Student Dormitory"@en ;
     ex:address "Kolejní 1, 160 00 Praha 6"@cs .
 
 
@@ -21,17 +21,17 @@ data:building3 a ex:Building ;
 data:classroom1 a ex:Classroom ;
     ex:classroomName "Posluchárna S1"@cs, "S1"@en ;
     ex:capacity 150 ;
-    ex:isPartOf data:building1 .
+    ex:is_part_of data:building1 .
 
 data:classroom2 a ex:Classroom ;
     ex:classroomName "Posluchárna S5"@cs, "S5"@en ;
     ex:capacity 80 ;
-    ex:isPartOf data:building1 .
+    ex:is_part_of data:building1 .
 
 data:classroom3 a ex:Classroom ;
     ex:classroomName "Učebna K11"@cs, "K11"@en ;
     ex:capacity 40 ;
-    ex:isPartOf data:building2 .
+    ex:is_part_of data:building2 .
 
 
 ######################### SUBJECTS #########################
@@ -47,7 +47,7 @@ data:subject3 a ex:Subject ;
     ex:takes_place data:classroom1 .
 
 data:subject2 a ex:Subject ;
-    ex:name "Databázové systémy"@cs, "Database systems"@en ;
+    ex:name "Databázové systémy"@cs, "Database Systems"@en ;
     ex:code "NDBI025" ;
     ex:takes_place data:classroom2 .
 
@@ -55,3 +55,4 @@ data:subject4 a ex:Subject ;
     ex:name "Lineární algebra"@cs, "Linear Algebra"@en ;
     ex:code "NMAI059" ;
     ex:takes_place data:classroom3 .
+

@@ -1,3 +1,4 @@
+@prefix :    <https://example.org/vocabulary/> .
 @prefix ex:  <https://example.org/vocabulary/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -5,7 +6,7 @@
         a                ex:Teacher;
         ex:firstName     "Pavel"@cs;
         ex:lastName      "Veselý"@cs;
-        ex:mobileNumber  "+420-123-456-789";
+        ex:mobileNumber  <tel:+420-123-456-789>;
         ex:resides       <https://example.org/data/building2>;
         ex:salary        45000;
         ex:teaches       <https://example.org/data/subject3> , <https://example.org/data/subject1> .
@@ -19,7 +20,7 @@
         a                ex:Teacher;
         ex:firstName     "Petr"@cs;
         ex:lastName      "Dvořák"@cs;
-        ex:mobileNumber  "+420-345-678-901";
+        ex:mobileNumber  <tel:+420-345-678-901>;
         ex:resides       <https://example.org/data/building2>;
         ex:salary        48000;
         ex:teaches       <https://example.org/data/subject4> .
@@ -30,9 +31,9 @@
         ex:name  "Programming I"@en , "Programování I"@cs .
 
 <https://example.org/data/building2>
-        a           ex:Building;
-        ex:address  "Ke Karlovu 3, 121 16 Praha 2"@cs;
-        ex:name     "Faculty of Mathematics and Physics"@en , "Matematicko-fyzikální fakulta"@cs .
+        a                ex:Building;
+        ex:address       "Ke Karlovu 3, 121 16 Praha 2"@cs;
+        ex:buildingName  "Faculty of Mathematics and Physics"@en , "Matematicko-fyzikální fakulta"@cs .
 
 <https://example.org/data/subject3>
         a        ex:Subject;
@@ -43,17 +44,15 @@
         a                ex:Teacher;
         ex:firstName     "Marta"@cs;
         ex:lastName      "Vomlelová"@cs;
-        ex:mobileNumber  "+420-333-444-555" , "+420-234-567-890";
+        ex:mobileNumber  <tel:+420-333-444-555> , <tel:+420-234-567-890>;
         ex:resides       <https://example.org/data/building1>;
         ex:salary        52000;
         ex:teaches       <https://example.org/data/subject2> .
 
-[ ex:hasTeacher  <https://example.org/data/teacher3> , <https://example.org/data/teacher2> , <https://example.org/data/teacher1> ] .
-
 <https://example.org/data/building1>
-        a           ex:Building;
-        ex:address  "Malostranské náměstí 25, 118 00 Praha 1"@cs;
-        ex:name     "Malostranske Square"@en , "Malostranské náměstí"@cs .
+        a                ex:Building;
+        ex:address       "Malostranské náměstí 25, 118 00 Praha 1"@cs;
+        ex:buildingName  "Malostranske Square"@en , "Malostranské náměstí"@cs .
 
 <https://example.org/data/subject2>
         a        ex:Subject;
