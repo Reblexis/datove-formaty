@@ -65,7 +65,7 @@
 
         <xsl:text>    ex:salary </xsl:text><xsl:value-of select="s3:salary"/><xsl:text> ;&#10;</xsl:text>
 
-        <xsl:text>    ex:residesIn data:</xsl:text>
+        <xsl:text>    ex:resides data:</xsl:text>
         <xsl:value-of select="substring-after(s3:Building/@id,'https://example.org/data/')"/>
         <xsl:text> ;&#10;</xsl:text>
 
@@ -92,12 +92,7 @@
                 </xsl:for-each>
                 <xsl:text> ;&#10;</xsl:text>
 
-                <xsl:text>    ex:code "</xsl:text><xsl:value-of select="s3:code"/><xsl:text>" ;&#10;</xsl:text>
-
-                <xsl:text>    ex:teaches </xsl:text>
-                <xsl:text>data:</xsl:text>
-                <xsl:value-of select="substring-after(../@id,'https://example.org/data/')"/>
-                <xsl:text> .&#10;&#10;</xsl:text>
+                <xsl:text>    ex:code "</xsl:text><xsl:value-of select="s3:code"/><xsl:text>" .&#10;&#10;</xsl:text>
             </xsl:if>
         </xsl:for-each>
     </xsl:template>

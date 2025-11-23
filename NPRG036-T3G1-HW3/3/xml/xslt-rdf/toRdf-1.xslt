@@ -61,11 +61,7 @@
 
                 <xsl:text>    ex:code "</xsl:text>
                 <xsl:value-of select="s1:code"/>
-                <xsl:text>" ;&#10;</xsl:text>
-
-                <xsl:text>    ex:teaches data:</xsl:text>
-                <xsl:value-of select="substring-after(s1:Teacher/@id,'https://example.org/data/')"/>
-                <xsl:text> .&#10;&#10;</xsl:text>
+                <xsl:text>" .&#10;&#10;</xsl:text>
             </xsl:if>
         </xsl:for-each>
     </xsl:template>
@@ -98,6 +94,14 @@
 
                 <xsl:text>    ex:salary </xsl:text>
                 <xsl:value-of select="s1:salary"/>
+                <xsl:text> ;&#10;</xsl:text>
+
+                <xsl:text>    ex:teaches </xsl:text>
+                <xsl:for-each select="//s1:Teacher[@id = current()/@id]">
+                    <xsl:text>data:</xsl:text>
+                    <xsl:value-of select="substring-after(../@id,'https://example.org/data/')"/>
+                    <xsl:if test="position()!=last()">,<xsl:text> </xsl:text></xsl:if>
+                </xsl:for-each>
                 <xsl:text> .&#10;&#10;</xsl:text>
             </xsl:if>
         </xsl:for-each>

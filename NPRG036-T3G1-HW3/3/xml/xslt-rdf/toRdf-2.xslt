@@ -59,7 +59,7 @@
         <xsl:text>    ex:capacity </xsl:text><xsl:value-of select="s2:capacity"/>
         <xsl:text> ;&#10;</xsl:text>
 
-        <xsl:text>    ex:isPartOf data:</xsl:text><xsl:value-of select="$building-id"/>
+        <xsl:text>    ex:is_part_of data:</xsl:text><xsl:value-of select="$building-id"/>
         <xsl:text> .&#10;&#10;</xsl:text>
     </xsl:template>
 
@@ -81,9 +81,10 @@
                 <xsl:text>    ex:code "</xsl:text><xsl:value-of select="s2:code"/><xsl:text>" ;&#10;</xsl:text>
 
                 <xsl:text>    ex:takes_place </xsl:text>
-                <xsl:for-each select="../@id">
+                <xsl:for-each select="//s2:Subject[@id = current()/@id]">
                     <xsl:text>data:</xsl:text>
                     <xsl:value-of select="substring-after(../@id,'https://example.org/data/')"/>
+                    <xsl:if test="position()!=last()">,<xsl:text> </xsl:text></xsl:if>
                 </xsl:for-each>
                 <xsl:text> .&#10;&#10;</xsl:text>
             </xsl:if>
