@@ -1,2 +1,2 @@
 # Find the unique names of buildings that contain at least one classroom with a capacity greater than 100 and host a subject with code containing 'PRG'
-[.buildings | .[] | select(.classrooms | any(.[]; .capacity > 100 and (.subjects | any(.[]; .code | contains("PRG"))))) | .name.en] | unique | .[]
+[."@graph" | .[] | select(.classrooms[]? | .capacity > 100 and (.subjects[] | .code | contains("PRG"))) | .buildingName.en] | unique | .[]
