@@ -14,69 +14,109 @@
                 {"required": ["cs"]},
                 {"required": ["en"]}
             ]
-        },
-        "person": {
-            "type": "object",
-            "required": ["id", "firstName", "lastName"],
-            "properties": {
-                "id": {
-                    "type": "string",
-                    "format": "uri"
-                },
-                "firstName": {"$ref": "#/$defs/langString"},
-                "lastName": {"$ref": "#/$defs/langString"},
-                "mobileNumber": {
-                    "type": "array",
-                    "items": {"type": "string"}
-                }
-            }
         }
     },
     "properties": {
-        "teachers": {
+        "@context": {"type": "object"},
+        "@graph": {
             "type": "array",
             "items": {
-                "allOf": [
-                    {"$ref": "#/$defs/person"},
+                "oneOf": [
                     {
                         "type": "object",
-                        "required": ["salary"],
+                        "required": ["@id", "@type", "firstName", "lastName", "salary"],
                         "properties": {
+                            "@id": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "@type": {
+                                "type": "string",
+                                "const": "Teacher"
+                            },
+                            "firstName": {"$ref": "#/$defs/langString"},
+                            "lastName": {"$ref": "#/$defs/langString"},
                             "salary": {"type": "integer"},
+                            "mobileNumber": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "format": "uri",
+                                    "pattern": "^tel:"
+                                }
+                            },
                             "subjects": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
-                                    "required": ["id", "name", "code"],
+                                    "required": ["@id", "@type", "subjectName", "code"],
                                     "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "format": "uri"
-                                            },
-                                            "subjectName": {"$ref": "#/$defs/langString"},
-                                            "code": {"type": "string"}
+                                        "@id": {
+                                            "type": "string",
+                                            "format": "uri"
+                                        },
+                                        "@type": {
+                                            "type": "string",
+                                            "const": "Subject"
+                                        },
+                                        "subjectName": {"$ref": "#/$defs/langString"},
+                                        "code": {"type": "string"}
                                     }
                                 }
                             },
                             "resides": {
                                 "type": "object",
-                                "required": ["id", "address", "name"],
+                                "required": ["@id", "@type", "buildingName", "address"],
                                 "properties": {
-                                    "id": {
+                                    "@id": {
                                         "type": "string",
                                         "format": "uri"
                                     },
-                                    "address": {"$ref": "#/$defs/langString"},
-                                    "buildingName": {"$ref": "#/$defs/langString"}
+                                    "@type": {
+                                        "type": "string",
+                                        "const": "Building"
+                                    },
+                                    "buildingName": {"$ref": "#/$defs/langString"},
+                                    "address": {"$ref": "#/$defs/langString"}
                                 }
                             }
+                        }
+                    },
+                    {
+                        "type": "object",
+                        "required": ["@id", "@type", "subjectName", "code"],
+                        "properties": {
+                            "@id": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "@type": {
+                                "type": "string",
+                                "const": "Subject"
+                            },
+                            "subjectName": {"$ref": "#/$defs/langString"},
+                            "code": {"type": "string"}
+                        }
+                    },
+                    {
+                        "type": "object",
+                        "required": ["@id", "@type", "buildingName", "address"],
+                        "properties": {
+                            "@id": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "@type": {
+                                "type": "string",
+                                "const": "Building"
+                            },
+                            "buildingName": {"$ref": "#/$defs/langString"},
+                            "address": {"$ref": "#/$defs/langString"}
                         }
                     }
                 ]
             }
         }
     },
-    "required": ["teachers"]
+    "required": ["@context", "@graph"]
 }
-
-

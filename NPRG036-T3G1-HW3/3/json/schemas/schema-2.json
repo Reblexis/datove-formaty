@@ -17,15 +17,20 @@
         }
     },
     "properties": {
-        "buildings": {
+        "@context": {"type": "object"},
+        "@graph": {
             "type": "array",
             "items": {
                 "type": "object",
-                "required": ["id", "address", "name"],
+                "required": ["@id", "@type", "address", "buildingName"],
                 "properties": {
-                    "id": {
+                    "@id": {
                         "type": "string",
                         "format": "uri"
+                    },
+                    "@type": {
+                        "type": "string",
+                        "const": "Building"
                     },
                     "address": {"$ref": "#/$defs/langString"},
                     "buildingName": {"$ref": "#/$defs/langString"},
@@ -33,11 +38,15 @@
                         "type": "array",
                         "items": {
                             "type": "object",
-                            "required": ["id", "capacity", "name"],
+                            "required": ["@id", "@type", "capacity", "classroomName"],
                             "properties": {
-                                "id": {
+                                "@id": {
                                     "type": "string",
                                     "format": "uri"
+                                },
+                                "@type": {
+                                    "type": "string",
+                                    "const": "Classroom"
                                 },
                                 "capacity": {"type": "integer"},
                                 "classroomName": {"$ref": "#/$defs/langString"},
@@ -45,11 +54,15 @@
                                     "type": "array",
                                     "items": {
                                         "type": "object",
-                                        "required": ["id", "name", "code"],
+                                        "required": ["@id", "@type", "subjectName", "code"],
                                         "properties": {
-                                                    "id": {
+                                                    "@id": {
                                                         "type": "string",
                                                         "format": "uri"
+                                                    },
+                                                    "@type": {
+                                                        "type": "string",
+                                                        "const": "Subject"
                                                     },
                                                     "subjectName": {"$ref": "#/$defs/langString"},
                                                     "code": {"type": "string"}
@@ -63,7 +76,7 @@
             }
         }
     },
-    "required": ["buildings"]
+    "required": ["@context", "@graph"]
 }
 
 

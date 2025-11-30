@@ -17,31 +17,41 @@
         },
         "person": {
             "type": "object",
-            "required": ["id", "firstName", "lastName"],
+            "required": ["@id", "@type", "firstName", "lastName"],
             "properties": {
-                "id": {
+                "@id": {
                     "type": "string",
                     "format": "uri"
                 },
+                "@type": {"type": "string"},
                 "firstName": {"$ref": "#/$defs/langString"},
                 "lastName": {"$ref": "#/$defs/langString"},
                 "mobileNumber": {
                     "type": "array",
-                    "items": {"type": "string"}
+                    "items": {
+                        "type": "string",
+                        "format": "uri",
+                        "pattern": "^tel:"
+                    }
                 }
             }
         }
     },
     "properties": {
-        "specializations": {
+        "@context": {"type": "object"},
+        "@graph": {
             "type": "array",
             "items": {
                 "type": "object",
-                "required": ["id", "title", "numberOfStudents"],
+                "required": ["@id", "@type", "title", "numberOfStudents"],
                 "properties": {
-                    "id": {
+                    "@id": {
                         "type": "string",
                         "format": "uri"
+                    },
+                    "@type": {
+                        "type": "string",
+                        "const": "Specialization"
                     },
                     "title": {"$ref": "#/$defs/langString"},
                     "numberOfStudents": {"type": "integer"},
@@ -54,15 +64,22 @@
                                     "type": "object",
                                     "required": ["subjects"],
                                     "properties": {
+                                        "@type": {
+                                            "const": "Student"
+                                        },
                                         "subjects": {
                                             "type": "array",
                                             "items": {
                                                 "type": "object",
-                                                "required": ["id", "name", "code", "teachers"],
+                                                "required": ["@id", "@type", "subjectName", "code", "teachers"],
                                                 "properties": {
-                                                    "id": {
+                                                    "@id": {
                                                         "type": "string",
                                                         "format": "uri"
+                                                    },
+                                                    "@type": {
+                                                        "type": "string",
+                                                        "const": "Subject"
                                                     },
                                                     "subjectName": {"$ref": "#/$defs/langString"},
                                                     "code": {"type": "string"},
@@ -75,6 +92,9 @@
                                                                     "type": "object",
                                                                     "required": ["salary"],
                                                                     "properties": {
+                                                                        "@type": {
+                                                                            "const": "Teacher"
+                                                                        },
                                                                         "salary": {"type": "integer"}
                                                                     }
                                                                 }
@@ -93,7 +113,7 @@
             }
         }
     },
-    "required": ["specializations"]
+    "required": ["@context", "@graph"]
 }
 
 
