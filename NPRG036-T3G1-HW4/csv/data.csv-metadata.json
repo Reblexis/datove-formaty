@@ -1,0 +1,311 @@
+{
+  "@context": "http://www.w3.org/ns/csvw",
+  "tables": [
+
+    {
+      "url": "data-1.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{person_id}",
+        "columns": [
+          { "name": "person_id", "datatype": "string" },
+
+          { "name": "first_name",
+            "datatype": "string", "lang": "cs",
+            "propertyUrl": "https://example.org/vocabulary/firstName"
+          },
+          { "name": "last_name",
+            "datatype": "string", "lang": "cs",
+            "propertyUrl": "https://example.org/vocabulary/lastName"
+          },
+
+          { "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://example.org/vocabulary/Person"
+          }
+        ],
+        "primaryKey": "person_id"
+      }
+    },
+
+    {
+      "url": "data-2.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{person_id}",
+        "columns": [
+          { "name": "person_id", "datatype": "string" },
+
+          { "name": "mobile_number",
+            "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/mobileNumber",
+            "valueUrl": "tel:{mobile_number}"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "columnReference": ["person_id"],
+            "reference": { "resource": "data-1.csv", "columnReference": ["person_id"] }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-3.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{teacher_id}",
+        "columns": [
+          { "name": "teacher_id", "datatype": "string" },
+          { "name": "salary", "datatype": "integer",
+            "propertyUrl": "https://example.org/vocabulary/salary" },
+
+          { "name": "person_id", "datatype": "string" },
+
+          { "name": "building_id", "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/resides",
+            "valueUrl": "https://example.org/data/{building_id}"
+          },
+
+          { "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://example.org/vocabulary/Teacher"
+          }
+        ],
+        "primaryKey": "teacher_id",
+        "foreignKeys": [
+          {
+            "columnReference": ["person_id"],
+            "reference": { "resource": "data-1.csv", "columnReference": ["person_id"] }
+          },
+          {
+            "columnReference": ["building_id"],
+            "reference": { "resource": "data-5.csv", "columnReference": ["building_id"] }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-4.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{student_id}",
+        "columns": [
+          { "name": "student_id", "datatype": "string" },
+          { "name": "person_id", "datatype": "string" },
+
+          { "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://example.org/vocabulary/Student"
+          }
+        ],
+        "primaryKey": "student_id",
+        "foreignKeys": [
+          {
+            "columnReference": ["person_id"],
+            "reference": { "resource": "data-1.csv", "columnReference": ["person_id"] }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-5.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{building_id}",
+        "columns": [
+          { "name": "building_id", "datatype": "string" },
+
+          { "name": "name_cs", "datatype": "string", "lang": "cs",
+            "propertyUrl": "https://example.org/vocabulary/buildingName" },
+          { "name": "name_en", "datatype": "string", "lang": "en",
+            "propertyUrl": "https://example.org/vocabulary/buildingName" },
+
+          { "name": "address_cs", "datatype": "string", "lang": "cs",
+            "propertyUrl": "https://example.org/vocabulary/address" },
+
+          { "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://example.org/vocabulary/Building"
+          }
+        ],
+        "primaryKey": "building_id"
+      }
+    },
+
+    {
+      "url": "data-6.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{classroom_id}",
+        "columns": [
+          { "name": "classroom_id", "datatype": "string" },
+          { "name": "building_id", "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/is_part_of",
+            "valueUrl": "https://example.org/data/{building_id}" },
+
+          { "name": "capacity", "datatype": "integer",
+            "propertyUrl": "https://example.org/vocabulary/capacity" },
+
+          { "name": "name_cs", "datatype": "string", "lang": "cs",
+            "propertyUrl": "https://example.org/vocabulary/classroomName" },
+          { "name": "name_en", "datatype": "string", "lang": "en",
+            "propertyUrl": "https://example.org/vocabulary/classroomName" },
+
+          { "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://example.org/vocabulary/Classroom"
+          }
+        ],
+        "primaryKey": "classroom_id",
+        "foreignKeys": [
+          {
+            "columnReference": ["building_id"],
+            "reference": { "resource": "data-5.csv", "columnReference": ["building_id"] }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-7.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{subject_id}",
+        "columns": [
+          { "name": "subject_id", "datatype": "string" },
+
+          { "name": "name_cs", "datatype": "string", "lang": "cs",
+            "propertyUrl": "https://example.org/vocabulary/name" },
+          { "name": "name_en", "datatype": "string", "lang": "en",
+            "propertyUrl": "https://example.org/vocabulary/name" },
+
+          { "name": "code", "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/code" },
+
+          { "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://example.org/vocabulary/Subject"
+          }
+        ],
+        "primaryKey": "subject_id"
+      }
+    },
+
+    {
+      "url": "data-8.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{specialization_id}",
+        "columns": [
+          { "name": "specialization_id", "datatype": "string" },
+
+          { "name": "title_cs", "datatype": "string", "lang": "cs",
+            "propertyUrl": "https://example.org/vocabulary/title" },
+          { "name": "title_en", "datatype": "string", "lang": "en",
+            "propertyUrl": "https://example.org/vocabulary/title" },
+
+          { "name": "number_of_students", "datatype": "integer",
+            "propertyUrl": "https://example.org/vocabulary/numberOfStudents" },
+
+          { "virtual": true,
+            "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+            "valueUrl": "https://example.org/vocabulary/Specialization"
+          }
+        ],
+        "primaryKey": "specialization_id"
+      }
+    },
+
+    {
+      "url": "data-9.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{student_id}",
+        "columns": [
+          { "name": "student_id", "datatype": "string" },
+          { "name": "specialization_id", "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/studies",
+            "valueUrl": "https://example.org/data/{specialization_id}" }
+        ],
+        "primaryKey": ["student_id", "specialization_id"],
+        "foreignKeys": [
+          {
+            "columnReference": ["student_id"],
+            "reference": { "resource": "data-4.csv", "columnReference": ["student_id"] }
+          },
+          {
+            "columnReference": ["specialization_id"],
+            "reference": { "resource": "data-8.csv", "columnReference": ["specialization_id"] }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-10.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{student_id}",
+        "columns": [
+          { "name": "student_id", "datatype": "string" },
+          { "name": "subject_id", "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/attends",
+            "valueUrl": "https://example.org/data/{subject_id}" }
+        ],
+        "primaryKey": ["student_id", "subject_id"],
+        "foreignKeys": [
+          {
+            "columnReference": ["student_id"],
+            "reference": { "resource": "data-4.csv", "columnReference": ["student_id"] }
+          },
+          {
+            "columnReference": ["subject_id"],
+            "reference": { "resource": "data-7.csv", "columnReference": ["subject_id"] }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-11.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{teacher_id}",
+        "columns": [
+          { "name": "teacher_id", "datatype": "string" },
+          { "name": "subject_id", "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/teaches",
+            "valueUrl": "https://example.org/data/{subject_id}" }
+        ],
+        "primaryKey": ["teacher_id", "subject_id"],
+        "foreignKeys": [
+          {
+            "columnReference": ["teacher_id"],
+            "reference": { "resource": "data-3.csv", "columnReference": ["teacher_id"] }
+          },
+          {
+            "columnReference": ["subject_id"],
+            "reference": { "resource": "data-7.csv", "columnReference": ["subject_id"] }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-12.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{subject_id}",
+        "columns": [
+          { "name": "subject_id", "datatype": "string" },
+          { "name": "classroom_id", "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/takes_place",
+            "valueUrl": "https://example.org/data/{classroom_id}" }
+        ],
+        "primaryKey": ["subject_id", "classroom_id"],
+        "foreignKeys": [
+          {
+            "columnReference": ["subject_id"],
+            "reference": { "resource": "data-7.csv", "columnReference": ["subject_id"] }
+          },
+          {
+            "columnReference": ["classroom_id"],
+            "reference": { "resource": "data-6.csv", "columnReference": ["classroom_id"] }
+          }
+        ]
+      }
+    }
+  ]
+}
