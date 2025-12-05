@@ -1,3 +1,4 @@
+teacher_id,salary,person_id,building_id
 teacher1,45000,p_teacher1,building2
 teacher2,52000,p_teacher2,building1
 teacher3,48000,p_teacher3,building2

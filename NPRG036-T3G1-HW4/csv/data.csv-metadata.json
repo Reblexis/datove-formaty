@@ -1,7 +1,13 @@
 {
-  "@context": "http://www.w3.org/ns/csvw",
+  "@context": ["http://www.w3.org/ns/csvw", { "@language": "cs" }],
+  "dialect": {
+    "encoding": "utf-8",
+    "header": true,
+    "delimiter": ","
+  },
+  "@type": "TableGroup",
+  "@id": "http://example.org/tableGroup",
   "tables": [
-
     {
       "url": "data-1.csv",
       "tableSchema": {
