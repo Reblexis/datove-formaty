@@ -13,7 +13,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{person_id}",
         "columns": [
-          { "name": "person_id", "datatype": "string" },
+          {
+            "name": "person_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
 
           { "name": "first_name",
             "datatype": "string", "lang": "cs",
@@ -38,7 +42,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{person_id}",
         "columns": [
-          { "name": "person_id", "datatype": "string" },
+          {
+            "name": "person_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
 
           { "name": "mobile_number",
             "datatype": "string",
@@ -60,11 +68,19 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{teacher_id}",
         "columns": [
-          { "name": "teacher_id", "datatype": "string" },
+          {
+            "name": "teacher_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
           { "name": "salary", "datatype": "integer",
             "propertyUrl": "https://example.org/vocabulary/salary" },
 
-          { "name": "person_id", "datatype": "string" },
+          {
+            "name": "person_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
 
           { "name": "building_id", "datatype": "string",
             "propertyUrl": "https://example.org/vocabulary/resides",
@@ -95,8 +111,16 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{student_id}",
         "columns": [
-          { "name": "student_id", "datatype": "string" },
-          { "name": "person_id", "datatype": "string" },
+          {
+            "name": "student_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "person_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
 
           { "virtual": true,
             "propertyUrl": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
@@ -118,7 +142,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{building_id}",
         "columns": [
-          { "name": "building_id", "datatype": "string" },
+          {
+            "name": "building_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
 
           { "name": "name_cs", "datatype": "string", "lang": "cs",
             "propertyUrl": "https://example.org/vocabulary/buildingName" },
@@ -142,7 +170,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{classroom_id}",
         "columns": [
-          { "name": "classroom_id", "datatype": "string" },
+          {
+            "name": "classroom_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
           { "name": "building_id", "datatype": "string",
             "propertyUrl": "https://example.org/vocabulary/is_part_of",
             "valueUrl": "https://example.org/data/{building_id}" },
@@ -175,7 +207,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{subject_id}",
         "columns": [
-          { "name": "subject_id", "datatype": "string" },
+          {
+            "name": "subject_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
 
           { "name": "name_cs", "datatype": "string", "lang": "cs",
             "propertyUrl": "https://example.org/vocabulary/name" },
@@ -199,7 +235,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{specialization_id}",
         "columns": [
-          { "name": "specialization_id", "datatype": "string" },
+          {
+            "name": "specialization_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
 
           { "name": "title_cs", "datatype": "string", "lang": "cs",
             "propertyUrl": "https://example.org/vocabulary/title" },
@@ -223,7 +263,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{student_id}",
         "columns": [
-          { "name": "student_id", "datatype": "string" },
+          {
+            "name": "student_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
           { "name": "specialization_id", "datatype": "string",
             "propertyUrl": "https://example.org/vocabulary/studies",
             "valueUrl": "https://example.org/data/{specialization_id}" }
@@ -247,7 +291,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{student_id}",
         "columns": [
-          { "name": "student_id", "datatype": "string" },
+          {
+            "name": "student_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
           { "name": "subject_id", "datatype": "string",
             "propertyUrl": "https://example.org/vocabulary/attends",
             "valueUrl": "https://example.org/data/{subject_id}" }
@@ -271,7 +319,11 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{teacher_id}",
         "columns": [
-          { "name": "teacher_id", "datatype": "string" },
+          {
+            "name": "teacher_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
           { "name": "subject_id", "datatype": "string",
             "propertyUrl": "https://example.org/vocabulary/teaches",
             "valueUrl": "https://example.org/data/{subject_id}" }
@@ -295,20 +347,70 @@
       "tableSchema": {
         "aboutUrl": "https://example.org/data/{subject_id}",
         "columns": [
-          { "name": "subject_id", "datatype": "string" },
-          { "name": "classroom_id", "datatype": "string",
-            "propertyUrl": "https://example.org/vocabulary/takes_place",
-            "valueUrl": "https://example.org/data/{classroom_id}" }
-        ],
-        "primaryKey": ["subject_id", "classroom_id"],
-        "foreignKeys": [
           {
-            "columnReference": ["subject_id"],
-            "reference": { "resource": "data-7.csv", "columnReference": ["subject_id"] }
+            "name": "subject_id",
+            "datatype": "string",
+            "suppressOutput": true
           },
           {
-            "columnReference": ["classroom_id"],
-            "reference": { "resource": "data-6.csv", "columnReference": ["classroom_id"] }
+            "name": "classroom_id",
+            "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/takes_place",
+            "valueUrl": "https://example.org/data/{classroom_id}"
+          }
+        ],
+        "primaryKey": [ "subject_id", "classroom_id" ],
+        "foreignKeys": [
+          {
+            "columnReference": [ "subject_id" ],
+            "reference": {
+              "resource": "data-7.csv",
+              "columnReference": [ "subject_id" ]
+            }
+          },
+          {
+            "columnReference": [ "classroom_id" ],
+            "reference": {
+              "resource": "data-6.csv",
+              "columnReference": [ "classroom_id" ]
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "url": "data-13.csv",
+      "tableSchema": {
+        "aboutUrl": "https://example.org/data/{teacher_id}",
+        "columns": [
+          {
+            "name": "teacher_id",
+            "datatype": "string",
+            "suppressOutput": true
+          },
+          {
+            "name": "building_id",
+            "datatype": "string",
+            "propertyUrl": "https://example.org/vocabulary/resides",
+            "valueUrl": "https://example.org/data/{building_id}"
+          }
+        ],
+        "primaryKey": [ "teacher_id", "building_id" ],
+        "foreignKeys": [
+          {
+            "columnReference": [ "teacher_id" ],
+            "reference": {
+              "resource": "data-3.csv",
+              "columnReference": [ "teacher_id" ]
+            }
+          },
+          {
+            "columnReference": [ "building_id" ],
+            "reference": {
+              "resource": "data-5.csv",
+              "columnReference": [ "building_id" ]
+            }
           }
         ]
       }
